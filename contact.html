@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — The Cooperative Agency</title>
+  <meta name="description" content="Contact The Cooperative Agency. Email lance@thecoopbrla.com · Phone 225-384-7228" />
+  <link rel="icon" href="./public/images/brand/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/site.css" />
+  <style>:root { --display: "Newsreader", Georgia, serif; }</style>
+</head>
+<body>
+  <div class="preview-banner">Preview build · Cloudflare-bound · not production DNS yet</div>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="./"><img src="./public/images/brand/Asset-33.png" alt="The Cooperative Agency" /></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./">Home</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./contact.html" aria-current="page">Contact</a>
+        <a href="./field-media.html">Field Media</a>
+      </nav>
+      <a class="btn btn-primary" href="sms:+12253847228">Text Us</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div>
+        <span class="badge">Contact</span>
+        <h2>Let’s see if we’re a good fit.</h2>
+        <p class="lede">Ready to simplify marketing, clean up systems, and move the needle? Single rooftop or growing auto group — we’ll meet you where you are.</p>
+        <p><strong>Email</strong><br /><a href="mailto:lance@thecoopbrla.com">lance@thecoopbrla.com</a></p>
+        <p><strong>Phone / text</strong><br /><a href="tel:+12253847228">225-384-7228</a> · <a href="sms:+12253847228">SMS</a></p>
+        <p class="lede">Follow <a href="http://instagram.com/thecooperativeagency">Instagram</a> · <a href="http://x.com/cooperativebrla">X</a></p>
+      </div>
+      <form class="form" action="mailto:lance@thecoopbrla.com" method="get">
+        <div class="row">
+          <label>First name<input name="first" required /></label>
+          <label>Last name<input name="last" required /></label>
+        </div>
+        <label>Dealership name<input name="dealership" required /></label>
+        <label>Website<input name="website" type="url" placeholder="https://" /></label>
+        <label>Email<input name="email" type="email" required /></label>
+        <label>Mobile phone<input name="phone" type="tel" required /></label>
+        <label>Subject<input name="subject" required /></label>
+        <label>Message<textarea name="message" required></textarea></label>
+        <p class="note">Form endpoint will be wired for production (Resend/API). Preview still supports direct email/SMS.</p>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div><strong style="color:var(--ink)">The Cooperative Agency</strong></div>
+      <div><a href="./">Home</a> · <a href="./faq.html">FAQ</a></div>
+    </div>
+  </footer>
+</body>
+</html>
