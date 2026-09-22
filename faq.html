@@ -4,101 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FAQ — The Cooperative Agency</title>
-  <meta name="description" content="Frequently asked questions about The Cooperative Agency — dealership marketing, co-op, content, CRM, and vendor management." />
+  <meta name="description" content="Frequently asked questions about The Cooperative Agency." />
   <link rel="icon" href="./public/images/brand/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/site.css" />
-  <style>:root { --display: "Newsreader", Georgia, serif; }</style>
+  <style>
+    .faq-hero {
+      position: relative;
+      min-height: 42svh;
+      color: #fff;
+      display: grid;
+      align-items: end;
+      background: #111;
+      overflow: hidden;
+    }
+    .faq-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.55); }
+    .faq-hero .inner { position:relative; z-index:2; padding: 0 var(--pad) 2.5rem; }
+    .faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 0.85rem; }
+    .faq-list details {
+      background: #fff;
+      border: 1px solid #dcdcdc;
+      padding: 1rem 1.1rem;
+    }
+    .faq-list summary {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq-list details p { margin: 0.75rem 0 0; color: #222; font-size: 16px; line-height: 1.4; }
+    .faq-list ul { margin: 0.5rem 0 0; padding-left: 1.1rem; font-size: 16px; }
+  </style>
 </head>
 <body>
-  <div class="preview-banner">Preview build · Cloudflare-bound · not production DNS yet</div>
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="logo" href="./"><img src="./public/images/brand/Asset-33.png" alt="The Cooperative Agency" /></a>
-      <nav class="nav" aria-label="Primary">
-        <a href="./">Home</a>
+  <div class="preview-banner">Preview · owned rebuild · not production DNS</div>
+  <section class="faq-hero">
+    <img src="./public/images/drone-august.jpg" alt="" />
+    <header class="site-header">
+      <a href="./"><img class="logo-wordmark" src="./public/images/brand/logo-wordmark-white.png" alt="the Cooperative agency" /></a>
+      <nav class="nav nav--light">
+        <a href="./contact.html">Contact Us</a>
         <a href="./faq.html" aria-current="page">FAQ</a>
-        <a href="./contact.html">Contact</a>
-        <a href="./field-media.html">Field Media</a>
+        <a href="./">Home</a>
       </nav>
-      <a class="btn btn-primary" href="sms:+12253847228">Text Us</a>
-    </div>
-  </header>
-
-  <section class="hero" style="min-height:42vh">
-    <div class="hero__media">
-      <img src="./public/images/drone-august-2.jpg" alt="" />
-    </div>
-    <div class="container hero__content">
-      <div class="kicker">FAQ</div>
-      <h1>Frequently asked questions.</h1>
+    </header>
+    <div class="inner">
+      <h1 class="display">Frequently asked questions.</h1>
     </div>
   </section>
 
-  <section class="section faq">
-    <div class="container" style="max-width:760px">
+  <section class="section">
+    <div class="faq-list">
       <details open>
         <summary>What does The Cooperative Agency do?</summary>
-        <p>We’re a full-service marketing and sales systems consultancy specializing in automotive dealerships. From outsourced CTO and Marketing Director services to custom content, vendor coordination, and co-op management — we help streamline operations and drive more sales, often for less than the cost of a single full-time employee.</p>
+        <p>We’re a full-service marketing and sales systems consultancy specializing in automotive dealerships. From outsourced CTO and Marketing Director services to custom content creation, vendor coordination, and co-op management — we help you streamline operations and drive more sales, all for less than the cost of a single full-time employee.</p>
       </details>
       <details>
         <summary>How is The Cooperative different from traditional automotive marketing agencies?</summary>
-        <p>Most agencies are bloated, slow, and rely on templated content. We’re fast, local, and focused on custom work that actually connects. No generic stock photos or recycled ad copy — everything is built for your brand, team, and market.</p>
+        <p>Most agencies are bloated, slow, and rely on templated, cookie-cutter content. We’re fast, local, and laser-focused on custom content that actually connects with your customers. You’ll never get generic stock photos or recycled ad copy from us.</p>
       </details>
       <details>
         <summary>Can you help with manufacturer co-op claims?</summary>
-        <p>Yes. Services are structured to maximize co-op eligibility. We tailor strategy, creative, and deployment with OEM compliance in mind and help submit claims so you keep brand voice and get reimbursed.</p>
+        <p>Yes — every service we provide is structured to maximize co-op eligibility. We tailor your strategy, creative, and deployment with OEM compliance in mind and even help submit your claims.</p>
       </details>
       <details>
-        <summary>What’s your turnaround on campaigns and creative?</summary>
-        <p>Fast. Traditional agencies can take weeks; we deploy within hours when needed — especially for sales events, incentives, and urgent updates. Creative is built in-house so there’s no middleman delay.</p>
+        <summary>What’s your turnaround time on campaigns and creative?</summary>
+        <p>Fast. While traditional agencies can take weeks, we deploy within hours when needed — especially for sales events, incentives, and urgent updates.</p>
       </details>
       <details>
         <summary>Do you manage social media for dealerships?</summary>
-        <p>Absolutely — local photo and video, reels, strategic scheduling around promotions, OEM-aligned messaging, and consistent multi-platform branding.</p>
+        <p>Absolutely. We handle local photo and video shoots, reels, strategic scheduling around promotions, OEM-aligned messaging, and consistent multi-platform branding.</p>
       </details>
       <details>
         <summary>What kind of content do you produce?</summary>
-        <p>Localized photography and video, reels and walkarounds, OEM-compliant graphics, Google Business updates, website creative, and ad platform assets — customized to your dealership and market.</p>
+        <p>Localized photography and video, reels and walkarounds, OEM-compliant graphics, Google Business updates, website creative, and ad platform assets — all customized to your dealership, community, and goals.</p>
       </details>
       <details>
         <summary>Can you help fix lead and CRM issues?</summary>
-        <p>Yes. We’re systems people as well as marketers. We diagnose and resolve lead flow, CRM setup, and follow-up process issues so opportunities don’t slip.</p>
+        <p>Yes. We’re not just marketers — we’re systems people. We diagnose and resolve issues with lead flow, CRM setup, follow-up processes, and more.</p>
       </details>
       <details>
         <summary>Can you manage all our vendors?</summary>
-        <p>That’s a specialty. We become your single point of contact, coordinate vendors, eliminate redundancies, and streamline communications so systems actually work together.</p>
+        <p>That’s one of our specialties. We simplify the chaos by becoming your single point of contact, eliminate redundancies, and streamline communications.</p>
       </details>
       <details>
         <summary>Are your services eligible for co-op reimbursement?</summary>
-        <p>Most are. We work with you and your OEM to maximize eligibility and tailor creative to brand guidelines. Many clients claim back 50% to 100% of service costs.</p>
+        <p>Yes, most of them are. Many clients claim back 50% to 100% of our service costs.</p>
       </details>
       <details>
         <summary>Where do you provide services?</summary>
-        <p>We work with dealerships in the southern region and pride ourselves on keeping it local — boots-on-the-ground content, regionalized strategies, fast and flexible service.</p>
+        <p>We work with dealerships in the southern region and pride ourselves on keeping it local — boots-on-the-ground content and regionalized strategies.</p>
       </details>
       <details>
         <summary>What types of dealers do you work with?</summary>
-        <p>We’ve worked with premium and luxury brands including Audi, BMW, and multi-location groups — and the model scales across rooftops, single-point or group.</p>
+        <p>We’ve worked with premium and luxury brands including Audi, BMW, and multi-location auto groups — and the model scales across rooftops.</p>
       </details>
       <details>
         <summary>Do you only work with automotive dealerships?</summary>
-        <p>Automotive is our specialty, but we also support other industries. We’re expanding into small-business startups (sites, brand, go-to-market) and restaurants (websites, menu content, photography, social). Reach out for early access.</p>
+        <p>Automotive is our specialty, but we also work with other industries. We’re expanding into small-business startups and restaurants. More info coming soon — reach out for early access.</p>
       </details>
-
-      <div style="margin-top:2rem">
-        <a class="btn btn-primary" href="./contact.html">Contact us</a>
-      </div>
+      <p style="margin-top:1.5rem"><a class="btn-pill" href="./contact.html">Contact Us</a></p>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div><strong style="color:var(--ink)">The Cooperative Agency</strong></div>
-      <div><a href="./">Home</a> · <a href="./contact.html">Contact</a></div>
+  <section class="footer-band">
+    <div class="footer-band__media">
+      <img src="./public/images/X7-in-Willow-Grove-7.jpg" alt="" />
     </div>
-  </footer>
+    <div class="footer-band__inner">
+      <div class="footer-card">
+        <div class="footer-card__left"><p class="display-sm">We look forward to working with you!</p></div>
+        <div class="footer-card__right">
+          <div><p class="label">Email</p><p class="value"><a href="mailto:lance@thecoopbrla.com">lance@thecoopbrla.com</a></p></div>
+          <div><p class="label">Phone</p><p class="value"><a href="tel:+12253847228">225-384-7228</a></p></div>
+          <p><a class="link-cta-sm" href="sms:+12253847228">Click Here Text Us.</a></p>
+        </div>
+      </div>
+    </div>
+    <img class="footer-logo" src="./public/images/brand/logo-wordmark-white.png" alt="the Cooperative agency" />
+  </section>
 </body>
 </html>
