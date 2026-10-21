@@ -1,0 +1,6 @@
+name = "coop-site"
+compatibility_date = "2026-10-21"
+pages_build_output_dir = "."
+
+# Pages production: set FORMSPREE_ENDPOINT to the Formspree form URL
+# (https://formspree.io/f/xxxx). Do not commit the id.

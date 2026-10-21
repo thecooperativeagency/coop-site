@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — The Cooperative Agency</title>
   <meta name="description" content="Contact The Cooperative Agency. Email lance@thecoopbrla.com · Phone/text 225-384-7228. Let’s simplify dealership marketing, clean up systems, and move the needle." />
-  <link rel="canonical" href="https://thecooperativeagency.com/contact-us" />
+  <link rel="canonical" href="https://thecoopbrla.com/contact-us" />
   <link rel="icon" href="./public/images/brand/favicon.ico" />
   <meta property="og:title" content="Contact — The Cooperative Agency" />
   <meta property="og:description" content="Email lance@thecoopbrla.com · Phone 225-384-7228. Client application for dealership marketing and sales systems." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://thecooperativeagency.com/contact-us" />
+  <meta property="og:url" content="https://thecoopbrla.com/contact-us" />
+  <meta property="og:image" content="https://thecoopbrla.com/public/images/brand/og-1200x630.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="robots" content="index,follow,max-snippet:-1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,26 +24,32 @@
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact The Cooperative Agency",
-    "url": "https://thecooperativeagency.com/contact-us",
+    "url": "https://thecoopbrla.com/contact-us",
     "mainEntity": {
       "@type": "Organization",
       "name": "The Cooperative Agency",
-      "url": "https://thecooperativeagency.com/",
+      "url": "https://thecoopbrla.com/",
       "email": "lance@thecoopbrla.com",
       "telephone": "+1-225-384-7228",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "12540 Airline Highway",
+        "addressLocality": "Baton Rouge",
+        "addressRegion": "Louisiana",
+        "postalCode": "70817",
+        "addressCountry": "US"
+      },
       "sameAs": [
-        "http://instagram.com/thecooperativeagency",
-        "http://x.com/cooperativebrla"
+        "https://www.instagram.com/cooperativebrla/",
+        "https://x.com/cooperativebrla"
       ],
-      "areaServed": "Southern United States",
+      "areaServed": "Baton Rouge, Louisiana",
       "description": "Full-service marketing and sales systems consultancy specializing in automotive dealerships."
     }
   }
   </script>
 </head>
 <body>
-  <div class="preview-banner">Preview · owned rebuild · hard-refresh if cached</div>
-
   <section class="page-hero page-hero--contact" aria-label="Contact">
     <div class="page-hero__media">
       <img src="./public/images/drone-august.jpg" alt="Aerial view of a dealership lot" width="2500" height="1407" fetchpriority="high" />
@@ -48,7 +57,7 @@
     <div class="page-hero__shade"></div>
     <header class="site-header">
       <a href="./" aria-label="The Cooperative Agency home">
-        <img class="logo-wordmark" src="./public/images/brand/logo-wordmark-white.png" alt="the Cooperative agency" width="1598" height="795" />
+        <img class="logo-wordmark" src="./public/images/brand/logo-wordmark-white.png" alt="The Cooperative Agency" width="1598" height="795" />
       </a>
       <nav class="nav nav--light" aria-label="Primary">
         <a href="./contact.html" aria-current="page">Contact Us</a>
@@ -77,14 +86,16 @@
             </div>
             <div>
               <p class="label">Phone / text</p>
-              <p class="value"><a href="tel:+12253847228">225-384-7228</a> · <a href="sms:+12253847228">SMS</a></p>
+              <p class="value"><a href="tel:+12253847228">225-384-7228</a> · <a href="sms:+12253847228">Text us</a></p>
             </div>
-            <p class="body"><a href="http://instagram.com/thecooperativeagency">Instagram</a> · <a href="http://x.com/cooperativebrla">X</a></p>
+            <p class="body"><a href="https://www.instagram.com/cooperativebrla/">Instagram</a> · <a href="https://x.com/cooperativebrla">X</a></p>
           </div>
           <p><a class="link-cta-sm" href="./">Return home</a></p>
         </div>
 
-        <form class="form" action="mailto:lance@thecoopbrla.com" method="get" aria-label="Client application">
+        <form class="form js-contact" action="/api/contact" method="post" aria-label="Client application">
+          <p class="form-thanks">Thanks — your message is in good hands, and a real person will read it. If it’s easier, you can also text us at 225-384-7228.</p>
+          <div class="form-fields">
           <p class="display-xs">Client application</p>
           <div class="row">
             <label>First Name<input name="first" autocomplete="given-name" required /></label>
@@ -96,8 +107,10 @@
           <label>Mobile Phone<input name="phone" type="tel" autocomplete="tel" required /></label>
           <label>Subject<input name="subject" required /></label>
           <label>Message<textarea name="message" required></textarea></label>
-          <p class="note">Prefer text? <a href="sms:+12253847228">225-384-7228</a> · or email <a href="mailto:lance@thecoopbrla.com">lance@thecoopbrla.com</a>. Production form endpoint next.</p>
+          <p class="note">Or text us at <a href="sms:+12253847228">225-384-7228</a> · <a href="mailto:lance@thecoopbrla.com">lance@thecoopbrla.com</a></p>
+          <p class="form-error" role="alert"></p>
           <button type="submit">Submit</button>
+          </div>
         </form>
       </div>
     </div>
@@ -121,16 +134,17 @@
             <p class="label">Phone</p>
             <p class="value"><a href="tel:+12253847228">225-384-7228</a></p>
           </div>
-          <p><a class="link-cta-sm" href="sms:+12253847228">Click Here Text Us.</a></p>
+          <p><a class="link-cta-sm" href="sms:+12253847228">Click here to text us.</a></p>
         </div>
       </div>
     </div>
-    <img class="footer-logo" src="./public/images/brand/logo-wordmark-white.png" alt="the Cooperative agency" width="1598" height="795" />
+    <img class="footer-logo" src="./public/images/brand/logo-wordmark-white.png" alt="The Cooperative Agency" width="1598" height="795" />
   </section>
 
   <div class="site-footer-mini">
-    <span>The Cooperative Agency</span>
-    <span><a href="./">Home</a> · <a href="./faq.html">FAQ</a> · <a href="./contact.html">Contact</a> · <a href="./field-media.html">Field Media</a></span>
+    <span>The Cooperative Agency · Baton Rouge, Louisiana</span>
+    <span><a href="./">Home</a> · <a href="./faq.html">FAQ</a> · <a href="./contact.html">Contact</a></span>
   </div>
+  <script src="./js/contact-form.js"></script>
 </body>
 </html>

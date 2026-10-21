@@ -1,20 +1,23 @@
 # coop-site
 
-Owned rebuild of https://thecooperativeagency.com (off Squarespace).
+Owned rebuild of The Cooperative Agency site. Canonical domain: **https://thecoopbrla.com** (do not cut DNS until Lance OKs).
 
-- Stack: static HTML/CSS
-- Host target: Cloudflare Pages
-- Assets: `public/images/` (pulled from live Squarespace CDN for parity)
+- Stack: static HTML/CSS + Cloudflare Pages Function (`functions/api/contact.js`)
+- Assets: `public/images/`
 - Local work: `~/.hermes/work/coop-site`
+- Preview: GitHub Pages or Cloudflare `*.pages.dev` — not the live domain
 
 ## Pages
 - `/` home
 - `/faq.html`
 - `/contact.html`
-- `/field-media.html` Coop Field Media offer
+- `/field-media.html` (kept in repo, unlinked in nav/footer until Lance approves a customer rewrite)
+
+## Contact form
+POST `/api/contact`. Set Pages env `FORMSPREE_ENDPOINT` to the Formspree form URL (`https://formspree.io/f/xxxx`). Mail goes to `lance@thecoopbrla.com`.
 
 ## Workflow
-1. Edit in repo
-2. Preview deploy
-3. Lance approves → promote
-4. DNS cut only after parity sign-off
+1. Edit in repo, push `main`
+2. Copper redeploys Cloudflare preview
+3. Lance approves → attach thecoopbrla.com
+4. DNS cut only after that

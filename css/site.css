@@ -20,6 +20,8 @@
   --display-md: clamp(2rem, 3.5vw + 0.5rem, 3.4rem);
   --display-sm: clamp(1.5rem, 2.4vw + 0.5rem, 2.72rem);
   --body-size: clamp(1rem, 0.35vw + 0.92rem, 1.19rem);
+  /* wordmark is ~1598×795; keep hero copy below the overlay header */
+  --header-clearance: calc(1.35rem + (clamp(9.5rem, 16vw, 13.75rem) * 0.5) + 1.25rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -66,21 +68,11 @@ a { color: inherit; }
 .footer-band,
 .section,
 .panel,
-.site-footer-mini,
-.preview-banner {
+.site-footer-mini {
   width: 100%;
   max-width: none;
   margin-left: 0;
   margin-right: 0;
-}
-
-.preview-banner {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  padding: 0.45rem var(--gutter);
 }
 
 /* ---------- type ---------- */
@@ -256,7 +248,7 @@ a { color: inherit; }
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 0 var(--gutter) clamp(2.75rem, 7vh, 5rem);
+  padding: var(--header-clearance) var(--gutter) clamp(2.75rem, 7vh, 5rem);
 }
 .hero__lede {
   max-width: 28rem;
@@ -437,6 +429,10 @@ a { color: inherit; }
   gap: 0.55rem;
   width: 100%;
 }
+.ig-grid a {
+  display: block;
+  min-width: 0;
+}
 .ig-grid img {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -498,6 +494,22 @@ a { color: inherit; }
   color: #555;
   margin: 0;
   line-height: 1.35;
+}
+.form[data-state="sent"] .form-fields { display: none; }
+.form-thanks {
+  display: none;
+  font-family: var(--display);
+  font-size: var(--display-sm);
+  line-height: 1.2;
+  margin: 0;
+}
+.form[data-state="sent"] .form-thanks { display: block; }
+.form[data-state="error"] .form-error { display: block; }
+.form-error {
+  display: none;
+  font-size: 0.875rem;
+  color: #7a1f1f;
+  margin: 0;
 }
 
 /* footer band — full bleed photo + floating card */
@@ -580,7 +592,7 @@ a { color: inherit; }
 .page-hero {
   position: relative;
   width: 100%;
-  min-height: clamp(18rem, 42svh, 28rem);
+  min-height: clamp(22rem, 48svh, 32rem);
   color: var(--white);
   display: grid;
   align-items: end;
@@ -611,7 +623,7 @@ a { color: inherit; }
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 0 var(--gutter) clamp(2rem, 5vh, 3.25rem);
+  padding: var(--header-clearance) var(--gutter) clamp(2rem, 5vh, 3.25rem);
   max-width: var(--measure-wide);
 }
 .page-hero__lede {
@@ -726,7 +738,7 @@ a { color: inherit; }
   .nav { gap: 0.85rem; font-size: 0.95rem; }
   .footer-card__right { border-left: 0; border-top: 1px solid #ececec; }
   .hero { min-height: 92svh; }
-  .page-hero { min-height: 16rem; }
+  .page-hero { min-height: calc(var(--header-clearance) + 14rem); }
   .faq-item .display-sm { max-width: none; }
   .brand-copy {
     justify-self: stretch;
