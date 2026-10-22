@@ -13,7 +13,7 @@
 - Expanding to small business startups (website and brand consulting, go-to-market strategy, systems setup) and restaurants (website builds, menu content, photography, social media management).
 
 ## How to reach us
-- Lance at lance@thecoopbrla.com, phone or text 225-384-7228, Baton Rouge, Louisiana.
+- Lance at lance@thecoopbrla.com, call (225) 240-4570 (calls are answered by an assistant that takes a message for Lance), Baton Rouge, Louisiana.
 - Instagram: https://www.instagram.com/cooperativebrla/
 
 ## Rules for replies

@@ -3,7 +3,7 @@ import { KNOWLEDGE } from "./_knowledge.js";
 import { CONFIG, json, clip, unsafeOutput, readBody, ipHashOf, leadRateLimited, processLead } from "./_shared.js";
 
 function fallbackReply(first) {
-  return `Hi ${first},\n\nThank you for reaching out to The Cooperative Agency. We received your message, and Lance will personally follow up with you shortly.\n\nIf anything is time-sensitive, you can call or text 225-384-7228 or email lance@thecoopbrla.com.\n\n${CONFIG.SIGNATURE}`;
+  return `Hi ${first},\n\nThank you for reaching out to The Cooperative Agency. We received your message, and Lance will personally follow up with you shortly.\n\nIf anything is time-sensitive, you can call (225) 240-4570 or email lance@thecoopbrla.com.\n\n${CONFIG.SIGNATURE}`;
 }
 
 async function aiReply(env, lead) {
