@@ -16,6 +16,7 @@ export async function onRequestPost(context) {
   const first = clip(data.first, 80), last = clip(data.last, 80), email = clip(data.email, 200), phone = clip(data.phone, 40);
   const city = clip(data.city, 120), sample = clip(data.sample, 300), social = clip(data.social, 300), intro = clip(data.message, 5000);
   let portfolio = clip(data.portfolio, 300);
+  if (!data.age21) return json({ ok: false, error: "age-required" }, 400);
   if (!first || !last || !email || !phone || !intro) return json({ ok: false, error: "missing-fields" }, 400);
   if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email)) return json({ ok: false, error: "bad-email" }, 400);
   if (portfolio && !/^[a-z][a-z0-9+.-]*:\/\//i.test(portfolio) && /^[^\s]+\.[^\s]+$/.test(portfolio)) portfolio = clip("https://" + portfolio, 300);
@@ -24,7 +25,7 @@ export async function onRequestPost(context) {
   const isTest = /\bTEST\b/.test([first, last, intro, clip(data.subject, 200)].join(" "));
 
   const message = [`JOB APPLICATION: ${ROLE}`, ...(city ? [`City: ${city}`] : []), `Social media: ${social || "(none given)"}`,
-    `Portfolio / website: ${portfolio || "(none given)"}`, `Inventory photo sample: ${sample || "(none given)"}`, `Interested in: ${interests.join(", ") || "(not specified)"}`, "", "Intro:", intro].join("\n");
+    `Portfolio / website: ${portfolio || "(none given)"}`, "Confirmed 21 or older: yes", `Inventory photo sample: ${sample || "(none given)"}`, `Interested in: ${interests.join(", ") || "(not specified)"}`, "", "Intro:", intro].join("\n");
   const lead = { first, last, dealership: `Job applicant (${ROLE})`, website: portfolio, email, phone,
     subject: `${isTest ? "TEST " : ""}Job application: ${ROLE}`, message,
     source_page: clip(request.headers.get("referer") || "", 300), source: "job_application", is_test: isTest ? 1 : 0 };
