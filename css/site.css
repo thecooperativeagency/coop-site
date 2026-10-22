@@ -780,3 +780,9 @@ a { color: inherit; }
 .form .check { display: flex; align-items: center; gap: .5rem; font-weight: 400; font-size: .95rem; }
 .form .check input { width: 1.1rem; height: 1.1rem; padding: 0; flex: none; }
 .form .opt { font-weight: 400; color: #666; }
+
+/* Own Your Web outbound link */
+.nav__ext { display: inline-flex; align-items: center; gap: 0.3em; white-space: nowrap; }
+.nav__ext-icon { width: 0.6em; height: 0.6em; flex: none; }
+.site-footer-mini__oyw { flex-basis: 100%; margin: 0; }
+.site-footer-mini__oyw a { text-decoration: underline; text-underline-offset: 3px; }
