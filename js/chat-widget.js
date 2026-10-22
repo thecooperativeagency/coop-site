@@ -48,8 +48,15 @@
   function open() { panel.hidden = false; launch.classList.add("cc-hide"); launch.setAttribute("aria-expanded", "true");
     if (!log.children.length) { add("Hi! I can answer questions about The Cooperative Agency's services for dealerships and businesses. What can I help with?", "bot"); ctaButton(); }
     input.focus(); }
-  function close() { panel.hidden = true; launch.classList.remove("cc-hide"); launch.setAttribute("aria-expanded", "false"); launch.focus(); }
+  function close() { panel.hidden = true; launch.classList.remove("cc-hide"); if (window.__ccSync) window.__ccSync(); launch.setAttribute("aria-expanded", "false"); launch.focus(); }
   launch.addEventListener("click", open);
+  // Public API + any [data-coop-chat] link/button opens the panel (link falls back to /contact without JS).
+  window.coopChat = { open: open, close: close };
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest && e.target.closest("[data-coop-chat]");
+    if (!t || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault(); open();
+  });
   panel.querySelector(".cc-x").addEventListener("click", close);
   panel.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
   input.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event("submit")); } });
@@ -105,8 +112,10 @@
     var vis = new Set();
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (x) { x.isIntersecting ? vis.add(x.target) : vis.delete(x.target); });
-      launch.classList.toggle("cc-hide", (vis.size > 0 && window.innerWidth < 900) || !panel.hidden);
+      sync();
     });
+    function sync() { launch.classList.toggle("cc-hide", (vis.size > 0 && window.innerWidth < 900) || !panel.hidden); }
+    window.__ccSync = sync;
     forms.forEach(function (f) { io.observe(f); });
   }
 })();
