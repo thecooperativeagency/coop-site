@@ -22,7 +22,7 @@ export const ipHashOf = (request) => sha((request.headers.get("cf-connecting-ip"
 
 export const BANNED = /(\$\s?\d|\d\s?%|percent|guarantee|per month|\/mo\b|discount|free of charge)/i;
 const TIMELINE = /\b\d+\s*(-|to)?\s*\d*\s*(hours?|days?|weeks?|months?|years?)\b|\bwithin (a|one|two|three) (day|week|month)/i;
-const ALLOWED_LINK = "https://www.instagram.com/cooperativebrla/";
+const ALLOWED_LINK = "https://www.instagram.com/thecooperativeagency/";
 // Output filter shared by every AI surface: true means reject and use a canned line.
 export function unsafeOutput(t, { strictTimelines = false } = {}) {
   if (!t) return true;

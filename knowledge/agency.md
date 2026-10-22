@@ -14,7 +14,7 @@
 
 ## How to reach us
 - Lance at lance@thecoopbrla.com, call (225) 240-4570 (calls are answered by an assistant that takes a message for Lance), Baton Rouge, Louisiana.
-- Instagram: https://www.instagram.com/cooperativebrla/
+- Instagram: https://www.instagram.com/thecooperativeagency/
 
 ## Rules for replies
 - Never quote prices, rates, percentages, reimbursement amounts, timelines or guarantees.
