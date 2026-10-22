@@ -5,3 +5,5 @@ ALTER TABLE leads ADD COLUMN source TEXT DEFAULT 'contact';
 ALTER TABLE leads ADD COLUMN transcript TEXT;
 CREATE TABLE IF NOT EXISTS chat_hits (ip_hash TEXT, created_at TEXT);
 CREATE INDEX IF NOT EXISTS chat_hits_ip_time ON chat_hits(ip_hash, created_at);
+-- CallRail phone relay (2026-10-21): rows use source='phone'
+ALTER TABLE leads ADD COLUMN call_meta TEXT;
