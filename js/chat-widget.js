@@ -56,7 +56,7 @@ html.cc-lock,html.cc-lock body{position:fixed!important;top:0;left:0;right:0;bot
   function fit() { if (!raf) raf = (window.requestAnimationFrame || setTimeout)(measure); }
   if (vv) { vv.addEventListener("resize", fit); vv.addEventListener("scroll", fit); }
   window.addEventListener("resize", fit);
-  function settle() { if (panel.hidden || !mq.matches) return; window.scrollTo(0, 0); fit(); setTimeout(function () { window.scrollTo(0, 0); fit(); }, 120); setTimeout(fit, 350); }
+  function settle() { if (panel.hidden || !mq.matches) return; window.scrollTo(0, 0); fit(); setTimeout(function () { if (panel.hidden) return; window.scrollTo(0, 0); fit(); }, 120); setTimeout(fit, 350); }
   panel.addEventListener("focusin", function (e) { settle();
     var t = e.target; if (t && t.closest && t.closest(".cc-lead") && mq.matches) setTimeout(function () { // keep inline form field visible inside the log, not the page
       var lr = log.getBoundingClientRect(), tr = t.getBoundingClientRect();
