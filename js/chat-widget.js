@@ -94,7 +94,7 @@
       typing.remove();
       var reply = r.reply || "Sorry, something went wrong. Email lance@thecoopbrla.com or text 225-384-7228.";
       add(reply, "bot"); if (r.ok) hist.push({ role: "assistant", content: reply });
-      if (r.offer_form) showLead();
+      if (r.offer_form || /\bform\b/i.test(reply)) showLead();
     }).catch(function () { typing.remove(); add("Sorry, I couldn’t connect. Email lance@thecoopbrla.com or text 225-384-7228.", "bot"); })
       .then(function () { busy = false; });
   });
