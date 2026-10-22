@@ -44,8 +44,10 @@ export async function onRequestPost(context) {
     subject: clip(data.subject, 200) || "Client application", message: clip(data.message, 5000),
     source_page: clip(request.headers.get("referer") || "", 300), source: "contact",
   };
-  if (!lead.first || !lead.last || !lead.dealership || !lead.website || !lead.email || !lead.phone || !lead.message) return json({ ok: false, error: "missing-fields" }, 400);
+  if (!lead.first || !lead.last || !lead.dealership || !lead.email || !lead.phone || !lead.message) return json({ ok: false, error: "missing-fields" }, 400);
   if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(lead.email)) return json({ ok: false, error: "bad-email" }, 400);
+  // Website is optional free text; normalize "www.apple.com" -> "https://www.apple.com" when no scheme.
+  if (lead.website && !/^[a-z][a-z0-9+.-]*:\/\//i.test(lead.website) && /^[^\s]+\.[^\s]+$/.test(lead.website)) lead.website = clip("https://" + lead.website, 300);
   lead.is_test = /\bTEST\b/.test(lead.subject) ? 1 : 0;
 
   const ipHash = await ipHashOf(request);
