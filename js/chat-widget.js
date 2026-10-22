@@ -29,8 +29,8 @@
 .cc-note{font-size:.7rem;color:#555;padding:0 .9rem .55rem;background:#fff;margin:0}\
 .cc-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}\
 @media (max-width:540px){.cc-launch{padding:.8rem}.cc-launch .cc-lbl{display:none}}\
-@media (max-width:767px),(pointer:coarse){.cc-panel{top:0;left:0;right:0;bottom:auto;width:100%;max-width:none;height:100vh;height:100dvh;border-radius:0}.cc-head{flex:none;padding-top:max(.8rem,env(safe-area-inset-top))}.cc-log{min-height:0;overscroll-behavior:contain}.cc-form,.cc-note{flex:none}.cc-note{padding-bottom:max(.55rem,env(safe-area-inset-bottom))}}\
-html.cc-lock,html.cc-lock body{overflow:hidden!important}\
+@media (max-width:767px),(pointer:coarse){.cc-panel{top:0;left:0;right:0;bottom:auto;width:100%;max-width:none;height:100vh;height:100dvh;border-radius:0;background:#fff;transform:translateY(0);will-change:transform,height;overscroll-behavior:contain}.cc-head{flex:none;padding-top:max(.8rem,env(safe-area-inset-top))}.cc-log{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.cc-form,.cc-note{flex:none}.cc-note{padding-bottom:max(.55rem,env(safe-area-inset-bottom))}}\
+html.cc-lock,html.cc-lock body{position:fixed!important;top:0;left:0;right:0;bottom:0;width:100%!important;overflow:hidden!important;overscroll-behavior:none}\
 @media (prefers-reduced-motion:reduce){.cc-launch{transition:none}}";
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 
@@ -48,17 +48,27 @@ html.cc-lock,html.cc-lock body{overflow:hidden!important}\
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; }
   function add(text, who) { var m = el("div", "cc-m " + (who === "me" ? "cc-me" : "cc-bot")); m.textContent = text; log.appendChild(m); log.scrollTop = log.scrollHeight; return m; }
   var mq = window.matchMedia ? window.matchMedia("(max-width:767px),(pointer:coarse)") : { matches: false };
-  var vv = window.visualViewport, scrollY = 0;
-  function fit() { if (panel.hidden || !mq.matches || !vv) { panel.style.height = ""; panel.style.top = ""; return; }
-    panel.style.height = vv.height + "px"; panel.style.top = vv.offsetTop + "px"; log.scrollTop = log.scrollHeight; }
+  var vv = window.visualViewport, scrollY = 0, raf = 0;
+  function measure() { raf = 0;
+    if (panel.hidden || !mq.matches) { panel.style.height = ""; panel.style.transform = ""; return; }
+    var h = vv ? vv.height : window.innerHeight, t = vv ? vv.offsetTop : 0;
+    panel.style.height = Math.round(h) + "px"; panel.style.transform = "translateY(" + Math.round(t) + "px)"; }
+  function fit() { if (!raf) raf = (window.requestAnimationFrame || setTimeout)(measure); }
   if (vv) { vv.addEventListener("resize", fit); vv.addEventListener("scroll", fit); }
-  function lock(on) { if (!mq.matches) return; var b = document.body;
-    if (on) { scrollY = window.scrollY; document.documentElement.classList.add("cc-lock"); b.style.position = "fixed"; b.style.top = -scrollY + "px"; b.style.width = "100%"; }
-    else if (document.documentElement.classList.contains("cc-lock")) { document.documentElement.classList.remove("cc-lock"); b.style.position = ""; b.style.top = ""; b.style.width = ""; window.scrollTo(0, scrollY); } }
-  function open() { if (!panel.hidden) return; panel.hidden = false; lock(true); fit(); launch.classList.add("cc-hide"); launch.setAttribute("aria-expanded", "true");
+  window.addEventListener("resize", fit);
+  function settle() { if (panel.hidden || !mq.matches) return; window.scrollTo(0, 0); fit(); setTimeout(function () { window.scrollTo(0, 0); fit(); }, 120); setTimeout(fit, 350); }
+  panel.addEventListener("focusin", function (e) { settle();
+    var t = e.target; if (t && t.closest && t.closest(".cc-lead") && mq.matches) setTimeout(function () { // keep inline form field visible inside the log, not the page
+      var lr = log.getBoundingClientRect(), tr = t.getBoundingClientRect();
+      if (tr.bottom > lr.bottom - 8) log.scrollTop += tr.bottom - lr.bottom + 16; else if (tr.top < lr.top + 8) log.scrollTop -= lr.top - tr.top + 16; }, 360); });
+  panel.addEventListener("focusout", settle);
+  function lock(on) { if (!mq.matches) return; var d = document.documentElement, b = document.body;
+    if (on) { if (d.classList.contains("cc-lock")) return; scrollY = window.scrollY || d.scrollTop || 0; b.style.top = -scrollY + "px"; d.classList.add("cc-lock"); }
+    else if (d.classList.contains("cc-lock")) { d.classList.remove("cc-lock"); b.style.top = ""; window.scrollTo(0, scrollY); } }
+  function open() { if (!panel.hidden) return; panel.hidden = false; lock(true); measure(); if (mq.matches && document.activeElement && document.activeElement.blur) document.activeElement.blur(); launch.classList.add("cc-hide"); launch.setAttribute("aria-expanded", "true");
     if (!log.children.length) { add("Hi! I can answer questions about The Cooperative Agency's services for dealerships and businesses. What can I help with?", "bot"); ctaButton(); }
-    log.scrollTop = log.scrollHeight; if (!mq.matches) input.focus(); }
-  function close() { if (panel.hidden) return; panel.hidden = true; lock(false); fit(); launch.classList.remove("cc-hide"); if (window.__ccSync) window.__ccSync(); launch.setAttribute("aria-expanded", "false"); launch.focus(); }
+    log.scrollTop = log.scrollHeight; if (!mq.matches) input.focus(); else settle(); }
+  function close() { if (panel.hidden) return; panel.hidden = true; lock(false); measure(); launch.classList.remove("cc-hide"); if (window.__ccSync) window.__ccSync(); launch.setAttribute("aria-expanded", "false"); launch.focus(); }
   launch.addEventListener("click", open);
   // Public API + any [data-coop-chat] link/button opens the panel (link falls back to /contact without JS).
   window.coopChat = { open: open, close: close };
