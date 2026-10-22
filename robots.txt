@@ -1,0 +1,89 @@
+# The Cooperative Agency — https://thecoopbrla.com
+# All crawlers, including search and AI assistants, are welcome.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: meta-externalfetcher
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+User-agent: FacebookBot
+Allow: /
+Disallow: /api/
+Disallow: /field-media
+
+Sitemap: https://thecoopbrla.com/sitemap.xml

@@ -21,3 +21,7 @@ POST `/api/contact`. Set Pages env `FORMSPREE_ENDPOINT` to the Formspree form UR
 2. Copper redeploys Cloudflare preview
 3. Lance approves → attach thecoopbrla.com
 4. DNS cut only after that
+
+## Maintaining robots.txt, llms.txt and sitemap.xml
+
+When you add a service, product, job posting, or sales page: add its URL to `sitemap.xml`, add it to `llms.txt` under the matching section (Services, Products, or Careers — create the section if it doesn't exist yet), and remove any `Disallow` line for it in `robots.txt`.
