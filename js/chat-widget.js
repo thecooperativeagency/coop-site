@@ -85,7 +85,7 @@
         leadDone = true; f.remove(); add("Thanks, " + d.name.split(" ")[0] + "! Lance has your info and will follow up personally.", "bot");
       }).catch(function (r) {
         btn.disabled = false;
-        err.textContent = r && r.error === "rate-limited" ? "Too many submissions. Please email lance@thecoopbrla.com." : "Couldn’t send. Email lance@thecoopbrla.com or text 225-384-7228.";
+        err.textContent = r && r.error === "rate-limited" ? "Too many submissions. Please email lance@thecoopbrla.com." : "Couldn’t send. Email lance@thecoopbrla.com or call 225-384-7228.";
       });
     });
   }
@@ -99,10 +99,10 @@
     var typing = add("Typing…", "bot"); typing.classList.add("cc-typing");
     post({ messages: hist }).then(function (r) {
       typing.remove();
-      var reply = r.reply || "Sorry, something went wrong. Email lance@thecoopbrla.com or text 225-384-7228.";
+      var reply = r.reply || "Sorry, something went wrong. Email lance@thecoopbrla.com or call 225-384-7228.";
       add(reply, "bot"); if (r.ok) hist.push({ role: "assistant", content: reply });
       if (r.offer_form || /\bform\b/i.test(reply)) showLead();
-    }).catch(function () { typing.remove(); add("Sorry, I couldn’t connect. Email lance@thecoopbrla.com or text 225-384-7228.", "bot"); })
+    }).catch(function () { typing.remove(); add("Sorry, I couldn’t connect. Email lance@thecoopbrla.com or call 225-384-7228.", "bot"); })
       .then(function () { busy = false; });
   });
 

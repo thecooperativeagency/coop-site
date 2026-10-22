@@ -38,7 +38,7 @@
           form.setAttribute("data-state", "error");
           if (err) {
             err.textContent =
-              "Couldn’t send the form. Email lance@thecoopbrla.com or text 225-384-7228 and we’ll take it from there.";
+              "Couldn’t send the form. Email lance@thecoopbrla.com or call 225-384-7228 and we’ll take it from there.";
           }
           if (btn) btn.disabled = false;
         });
