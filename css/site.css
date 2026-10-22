@@ -767,3 +767,16 @@ a { color: inherit; }
     padding-bottom: calc(clamp(1.25rem, 3vw, 2.25rem) + clamp(9rem, 14vw, 12.5rem) * 0.5 + 1.5rem);
   }
 }
+
+/* Careers */
+.careers-copy h2 { margin: 0 0 .5rem; }
+.careers-copy section p { margin: 0; }
+.careers-copy section p + p { margin-top: .8rem; }
+.form label .opt { display: inline; }
+.careers-copy .pills { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: 0; }
+.careers-copy .pills li { border: 1px solid #000; padding: .3rem .6rem; font-size: .8125rem; }
+.form fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.form legend { font-size: .8125rem; font-weight: 500; margin-bottom: .2rem; padding: 0; }
+.form .check { display: flex; align-items: center; gap: .5rem; font-weight: 400; font-size: .95rem; }
+.form .check input { width: 1.1rem; height: 1.1rem; padding: 0; flex: none; }
+.form .opt { font-weight: 400; color: #666; }

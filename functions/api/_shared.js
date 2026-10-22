@@ -65,22 +65,24 @@ export async function sendEmail(env, msg) {
   } catch (e) { return "error:" + String(e).slice(0, 200); }
 }
 
+export function leadKind(lead) { return lead.source === "chat" ? "chat lead" : lead.source === "job_application" ? "JOB APPLICATION" : "inquiry"; }
+
 export function notifyBody(lead, reply, live) {
   const digits = (lead.phone || "").replace(/[^\d+]/g, "");
   const subj = encodeURIComponent("Re: " + (lead.subject || "Your inquiry"));
   const name = `${lead.first} ${lead.last || ""}`.trim();
-  const rows = [["Name", name], ["Dealership / company", lead.dealership], ["Website", lead.website], ["Email", lead.email], ["Phone", lead.phone], ["Subject", lead.subject], ["Source", lead.source || "contact"], ["Page", lead.source_page]];
+  const rows = [["Name", name], [lead.source === "job_application" ? "Applying for" : "Dealership / company", lead.dealership], [lead.source === "job_application" ? "Portfolio / website" : "Website", lead.website], ["Email", lead.email], ["Phone", lead.phone], ["Subject", lead.subject], ["Source", lead.source || "contact"], ["Page", lead.source_page]];
   const links = [lead.email && `<a href="mailto:${esc(lead.email)}?subject=${subj}">Email ${esc(lead.first)}</a>`, digits && `<a href="tel:${esc(digits)}">Call ${esc(lead.phone)}</a>`, digits && `<a href="sms:${esc(digits)}">Text ${esc(lead.phone)}</a>`].filter(Boolean).join(" &nbsp;|&nbsp; ");
   const tx = lead.transcript ? `<h3>Chat transcript</h3><pre style="white-space:pre-wrap;font-family:inherit;background:#f4f4f4;padding:10px">${esc(lead.transcript)}</pre>` : "";
   const html = `<div style="font-family:Arial,sans-serif;font-size:15px">
-<h2>${lead.is_test ? "[TEST] " : ""}New ${lead.source === "chat" ? "chat lead" : "inquiry"}: ${esc(name)}, ${esc(lead.dealership)}</h2>
+<h2>${lead.is_test ? "[TEST] " : ""}New ${leadKind(lead)}: ${esc(name)}, ${esc(lead.dealership)}</h2>
 <p>${links}</p>
 <table cellpadding="4">${rows.map(([k, v]) => `<tr><td><b>${k}</b></td><td>${esc(v || "")}</td></tr>`).join("")}</table>
 <h3>Message</h3><pre style="white-space:pre-wrap;font-family:inherit">${esc(lead.message)}</pre>${tx}
 ${reply ? `<h3>${live ? "Auto-reply sent to inquirer" : "Draft reply that would have been sent"}</h3>
 <pre style="white-space:pre-wrap;font-family:inherit;background:#f4f4f4;padding:10px">${esc(reply.text)}</pre>
 <p style="color:#777;font-size:12px">Reply source: ${esc(reply.source)} · AUTOREPLY_LIVE=${live}</p>` : ""}</div>`;
-  const text = `${lead.is_test ? "[TEST] " : ""}New ${lead.source === "chat" ? "chat lead" : "inquiry"} from ${name} (${lead.dealership})\n` +
+  const text = `${lead.is_test ? "[TEST] " : ""}New ${leadKind(lead)} from ${name} (${lead.dealership})\n` +
     (lead.email ? `Email: mailto:${lead.email}\n` : "") + (digits ? `Call: tel:${digits}\nText: sms:${digits}\n` : "") +
     rows.map(([k, v]) => `${k}: ${v || ""}`).join("\n") + `\n\nMessage:\n${lead.message}\n` + (lead.transcript ? `\nChat transcript:\n${lead.transcript}\n` : "") +
     (reply ? `\n${live ? "Auto-reply sent to inquirer" : "Draft reply that would have been sent"}:\n${reply.text}\n` : "");
@@ -100,7 +102,7 @@ export async function processLead({ env, waitUntil, lead, ipHash, reply }) {
   }
   const name = `${lead.first} ${lead.last || ""}`.trim();
   const n = notifyBody(lead, reply, live);
-  const notifyStatus = await sendEmail(env, { to: CONFIG.NOTIFY_TO, subject: `${lead.is_test ? "[TEST] " : ""}New ${lead.source === "chat" ? "chat lead" : "inquiry"}: ${name}, ${lead.dealership}`, html: n.html, text: n.text, ...(lead.email ? { reply_to: lead.email } : {}) });
+  const notifyStatus = await sendEmail(env, { to: CONFIG.NOTIFY_TO, subject: `${lead.is_test ? "[TEST] " : ""}New ${leadKind(lead)}: ${name}, ${lead.dealership}`, html: n.html, text: n.text, ...(lead.email ? { reply_to: lead.email } : {}) });
   let autoStatus = reply ? "drafted" : "n/a";
   if (canAuto) autoStatus = await sendEmail(env, { to: lead.email, subject: "Thanks for reaching out to The Cooperative Agency", text: reply.text, html: `<pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:15px">${esc(reply.text)}</pre>` });
   if (db && leadId) waitUntil(db.prepare("UPDATE leads SET notify_status=?, autoreply_status=? WHERE id=?").bind(notifyStatus, autoStatus, leadId).run().catch(() => {}));

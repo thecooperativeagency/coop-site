@@ -6,7 +6,9 @@
     var data = new FormData(form);
     var obj = {};
     data.forEach(function (value, key) {
-      if (key) obj[key] = String(value).trim();
+      if (!key) return;
+      var v = String(value).trim();
+      obj[key] = key in obj ? obj[key] + "," + v : v; // multi-value fields (checkboxes) join with commas
     });
     return obj;
   }
