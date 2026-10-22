@@ -28,7 +28,9 @@
 .cc-form textarea{flex:1;resize:none;font:inherit;font-size:16px;padding:.5rem .65rem;border:1px solid #bbb;border-radius:10px;max-height:6rem}\
 .cc-note{font-size:.7rem;color:#555;padding:0 .9rem .55rem;background:#fff;margin:0}\
 .cc-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}\
-@media (max-width:540px){.cc-panel{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0}.cc-launch{padding:.8rem}.cc-launch .cc-lbl{display:none}}\
+@media (max-width:540px){.cc-launch{padding:.8rem}.cc-launch .cc-lbl{display:none}}\
+@media (max-width:767px),(pointer:coarse){.cc-panel{top:0;left:0;right:0;bottom:auto;width:100%;max-width:none;height:100vh;height:100dvh;border-radius:0}.cc-head{flex:none;padding-top:max(.8rem,env(safe-area-inset-top))}.cc-log{min-height:0;overscroll-behavior:contain}.cc-form,.cc-note{flex:none}.cc-note{padding-bottom:max(.55rem,env(safe-area-inset-bottom))}}\
+html.cc-lock,html.cc-lock body{overflow:hidden!important}\
 @media (prefers-reduced-motion:reduce){.cc-launch{transition:none}}";
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 
@@ -45,10 +47,18 @@
 
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; }
   function add(text, who) { var m = el("div", "cc-m " + (who === "me" ? "cc-me" : "cc-bot")); m.textContent = text; log.appendChild(m); log.scrollTop = log.scrollHeight; return m; }
-  function open() { panel.hidden = false; launch.classList.add("cc-hide"); launch.setAttribute("aria-expanded", "true");
+  var mq = window.matchMedia ? window.matchMedia("(max-width:767px),(pointer:coarse)") : { matches: false };
+  var vv = window.visualViewport, scrollY = 0;
+  function fit() { if (panel.hidden || !mq.matches || !vv) { panel.style.height = ""; panel.style.top = ""; return; }
+    panel.style.height = vv.height + "px"; panel.style.top = vv.offsetTop + "px"; log.scrollTop = log.scrollHeight; }
+  if (vv) { vv.addEventListener("resize", fit); vv.addEventListener("scroll", fit); }
+  function lock(on) { if (!mq.matches) return; var b = document.body;
+    if (on) { scrollY = window.scrollY; document.documentElement.classList.add("cc-lock"); b.style.position = "fixed"; b.style.top = -scrollY + "px"; b.style.width = "100%"; }
+    else if (document.documentElement.classList.contains("cc-lock")) { document.documentElement.classList.remove("cc-lock"); b.style.position = ""; b.style.top = ""; b.style.width = ""; window.scrollTo(0, scrollY); } }
+  function open() { if (!panel.hidden) return; panel.hidden = false; lock(true); fit(); launch.classList.add("cc-hide"); launch.setAttribute("aria-expanded", "true");
     if (!log.children.length) { add("Hi! I can answer questions about The Cooperative Agency's services for dealerships and businesses. What can I help with?", "bot"); ctaButton(); }
-    input.focus(); }
-  function close() { panel.hidden = true; launch.classList.remove("cc-hide"); if (window.__ccSync) window.__ccSync(); launch.setAttribute("aria-expanded", "false"); launch.focus(); }
+    log.scrollTop = log.scrollHeight; if (!mq.matches) input.focus(); }
+  function close() { if (panel.hidden) return; panel.hidden = true; lock(false); fit(); launch.classList.remove("cc-hide"); if (window.__ccSync) window.__ccSync(); launch.setAttribute("aria-expanded", "false"); launch.focus(); }
   launch.addEventListener("click", open);
   // Public API + any [data-coop-chat] link/button opens the panel (link falls back to /contact without JS).
   window.coopChat = { open: open, close: close };
@@ -73,7 +83,7 @@
       '<label>Phone<input name="phone" type="tel" autocomplete="tel" maxlength="40"></label>' +
       '<div class="cc-hp" aria-hidden="true"><input name="company_url" tabindex="-1" autocomplete="off"></div>' +
       '<div class="cc-err" role="alert"></div><button type="submit">Send to Lance</button>';
-    log.appendChild(f); log.scrollTop = log.scrollHeight; f.querySelector("input").focus();
+    log.appendChild(f); log.scrollTop = log.scrollHeight; if (!mq.matches) f.querySelector("input").focus();
     f.addEventListener("submit", function (e) {
       e.preventDefault(); var err = f.querySelector(".cc-err"), btn = f.querySelector("button");
       var d = {}; new FormData(f).forEach(function (v, k) { d[k] = String(v).trim(); });
