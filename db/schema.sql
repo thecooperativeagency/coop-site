@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS leads (id INTEGER PRIMARY KEY AUTOINCREMENT, created_at TEXT NOT NULL, ip_hash TEXT, first TEXT, last TEXT, dealership TEXT, website TEXT, email TEXT, phone TEXT, subject TEXT, message TEXT, source_page TEXT, ai_reply TEXT, reply_source TEXT, autoreply_sent INTEGER, notify_status TEXT, autoreply_status TEXT, is_test INTEGER);
+CREATE INDEX IF NOT EXISTS leads_ip_time ON leads(ip_hash, created_at);

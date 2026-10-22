@@ -14,7 +14,7 @@ Owned rebuild of The Cooperative Agency site. Canonical domain: **https://thecoo
 - `/field-media.html` (kept in repo, unlinked in nav/footer until Lance approves a customer rewrite)
 
 ## Contact form
-POST `/api/contact`. Set Pages env `FORMSPREE_ENDPOINT` to the Formspree form URL (`https://formspree.io/f/xxxx`). Mail goes to `lance@thecoopbrla.com`.
+POST `/api/contact` (functions/api/contact.js): stores every lead in D1 `coop-leads`, drafts a reply with Workers AI grounded in `knowledge/`, emails Lance a notification with mailto/tel/sms links, and emails the inquirer only when `AUTOREPLY_LIVE=true`. Optional `LEAD_WEBHOOK_URL` + `LEAD_WEBHOOK_AUTH` post the lead JSON to chat.
 
 ## Workflow
 1. Edit in repo, push `main`
@@ -25,3 +25,6 @@ POST `/api/contact`. Set Pages env `FORMSPREE_ENDPOINT` to the Formspree form UR
 ## Maintaining robots.txt, llms.txt and sitemap.xml
 
 When you add a service, product, job posting, or sales page: add its URL to `sitemap.xml`, add it to `llms.txt` under the matching section (Services, Products, or Careers — create the section if it doesn't exist yet), and remove any `Disallow` line for it in `robots.txt`.
+
+## Knowledge docs
+The contact-form AI auto-responder is grounded only in `knowledge/*.md`. New site offerings get a matching knowledge doc. Lines containing `TODO` are not sent to the model.

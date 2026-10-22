@@ -2,5 +2,17 @@ name = "coop-site"
 compatibility_date = "2026-10-21"
 pages_build_output_dir = "."
 
-# Pages production: set FORMSPREE_ENDPOINT to the Formspree form URL
-# (https://formspree.io/f/xxxx). Do not commit the id.
+[vars]
+AUTOREPLY_LIVE = "false"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "coop-leads"
+database_id = "558ae374-3224-4254-97b2-725e55fb3805"
+
+[ai]
+binding = "AI"
+
+# Email: Cloudflare Email Sending (sender hello@mail.thecoopbrla.com, subdomain onboarding pending).
+# Either a send_email binding named EMAIL, or secrets CF_EMAIL_API_TOKEN + CF_ACCOUNT_ID for the REST API.
+# Optional secrets: LEAD_WEBHOOK_URL, LEAD_WEBHOOK_AUTH (chat notification).
