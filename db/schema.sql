@@ -7,3 +7,6 @@ CREATE TABLE IF NOT EXISTS chat_hits (ip_hash TEXT, created_at TEXT);
 CREATE INDEX IF NOT EXISTS chat_hits_ip_time ON chat_hits(ip_hash, created_at);
 -- CallRail phone relay (2026-10-21): rows use source='phone'
 ALTER TABLE leads ADD COLUMN call_meta TEXT;
+-- SMS consent on contact-form leads (2026-10-26). JSON: consent, version, text, at, page_url, user_agent, ip, ip_hash.
+-- The worker also adds this column on first use. Leads still insert if the column cannot be added.
+ALTER TABLE leads ADD COLUMN sms_meta TEXT;

@@ -1,6 +1,32 @@
 // /api/contact: store lead (D1), AI reply (Workers AI), notify Lance, optional auto-reply + webhook.
 import { KNOWLEDGE } from "./_knowledge.js";
-import { CONFIG, json, clip, unsafeOutput, readBody, ipHashOf, leadRateLimited, processLead } from "./_shared.js";
+import { CONFIG, json, clip, unsafeOutput, readBody, ipHashOf, leadRateLimited, processLead, pageUrl } from "./_shared.js";
+
+// Canonical copy of the wording shown under Mobile Phone on /contact. Version must match the hidden field.
+export const SMS_VERSION = "2026-10-26";
+export const SMS_CONSENT_TEXT = [
+  "Yes, I agree to receive text messages from The Cooperative Agency about my inquiry, including replies, follow-ups, and scheduling, at the mobile number provided. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.",
+  "By checking the SMS box, you agree to receive conversational and informational text messages from The Cooperative Agency, LLC about your inquiry, our services, and appointments. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help; contact lance@thecoopbrla.com or (225) 240-4570. Consent is not required to submit this form or buy anything. See our Privacy Policy (thecoopbrla.com/privacy) and SMS Terms (thecoopbrla.com/sms-terms).",
+].join("\n");
+
+export function smsRecord(data, request, sourcePage) {
+  const versionPosted = clip(data.sms_consent_version, 40);
+  const raw = data.sms_consent;
+  if (!versionPosted && (raw == null || raw === "")) return null;
+  const parts = Array.isArray(raw) ? raw : String(raw ?? "").split(",");
+  const consent = parts.some((p) => /^(yes|true|on|1)$/i.test(String(p).trim()));
+  const postedText = clip(data.sms_consent_text, 4000);
+  const version = versionPosted || SMS_VERSION;
+  return {
+    consent,
+    version,
+    text: version === SMS_VERSION ? SMS_CONSENT_TEXT : (postedText || SMS_CONSENT_TEXT),
+    at: new Date().toISOString(),
+    page_url: sourcePage,
+    user_agent: clip(request.headers.get("user-agent") || "", 500),
+    ip: clip(request.headers.get("cf-connecting-ip") || "", 64),
+  };
+}
 
 function fallbackReply(first) {
   return `Hi ${first},\n\nThank you for reaching out to The Cooperative Agency. We received your message, and Lance will personally follow up with you shortly.\n\nIf anything is time-sensitive, you can call (225) 240-4570 or email lance@thecoopbrla.com.\n\n${CONFIG.SIGNATURE}`;
@@ -42,8 +68,10 @@ export async function onRequestPost(context) {
     first: clip(data.first, 80), last: clip(data.last, 80), dealership: clip(data.dealership, 160),
     website: clip(data.website, 300), email: clip(data.email, 200), phone: clip(data.phone, 40),
     subject: clip(data.subject, 200) || "Client application", message: clip(data.message, 5000),
-    source_page: clip(request.headers.get("referer") || "", 300), source: "contact",
+    source_page: pageUrl(data, request), source: "contact",
   };
+  const sms = smsRecord(data, request, lead.source_page);
+  if (sms) lead.sms = sms;
   if (!lead.first || !lead.last || !lead.dealership || !lead.email || !lead.phone || !lead.message) return json({ ok: false, error: "missing-fields" }, 400);
   if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(lead.email)) return json({ ok: false, error: "bad-email" }, 400);
   // Website is optional free text; normalize "www.apple.com" -> "https://www.apple.com" when no scheme.

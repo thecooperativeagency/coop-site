@@ -779,6 +779,19 @@ a { color: inherit; }
 .form legend { font-size: .8125rem; font-weight: 500; margin-bottom: .2rem; padding: 0; }
 .form .check { display: flex; align-items: center; gap: .5rem; font-weight: 400; font-size: .95rem; }
 .form .check input { width: 1.1rem; height: 1.1rem; padding: 0; flex: none; }
+.sms-consent { display: grid; gap: 0.55rem; margin: 0.15rem 0 0.1rem; }
+.form .check--sms { align-items: flex-start; gap: 0.65rem; font-size: 0.875rem; line-height: 1.45; letter-spacing: -0.01em; }
+.form .check--sms input { width: 1.15rem; height: 1.15rem; margin-top: 0.15rem; accent-color: #000; }
+.sms-disclosure { margin: 0; font-size: 0.8125rem; line-height: 1.45; color: #222; }
+.sms-disclosure a { text-decoration: underline; text-underline-offset: 2px; }
+.page-hero--legal { min-height: 0; }
+.legal { width: min(46rem, 100%); margin-inline: auto; display: grid; gap: 1.35rem; }
+.legal section { display: grid; gap: 0.7rem; }
+.legal h2 { font-family: var(--display); font-weight: 400; font-size: var(--display-sm); line-height: 1.12; letter-spacing: -0.03em; margin: 0; }
+.legal p, .legal li { font-family: var(--sans); font-size: 1.05rem; line-height: 1.5; letter-spacing: -0.015em; margin: 0; }
+.legal ul { margin: 0; padding-left: 1.15rem; display: grid; gap: 0.45rem; }
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
+.legal .legal-id { display: grid; gap: 0.2rem; }
 .form .opt { font-weight: 400; color: #666; }
 
 /* Own Your Web outbound link */
