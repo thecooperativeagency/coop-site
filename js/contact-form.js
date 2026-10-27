@@ -3,6 +3,14 @@
   if (!forms.length) return;
 
   function payload(form) {
+    var page = form.querySelector('input[name="page_url"]');
+    if (!page) {
+      page = document.createElement("input");
+      page.type = "hidden";
+      page.name = "page_url";
+      form.appendChild(page);
+    }
+    try { page.value = location.href.split("#")[0]; } catch (e) {}
     var data = new FormData(form);
     var obj = {};
     data.forEach(function (value, key) {
@@ -35,6 +43,8 @@
         .then(function () {
           form.setAttribute("data-state", "sent");
           form.reset();
+          var thanks = form.querySelector(".form-thanks");
+          if (thanks && thanks.scrollIntoView) thanks.scrollIntoView({ block: "start" });
         })
         .catch(function () {
           form.setAttribute("data-state", "error");

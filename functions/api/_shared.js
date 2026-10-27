@@ -12,6 +12,12 @@ export const CONFIG = {
 
 export const json = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
 export const clip = (v, n) => (typeof v === "string" ? v.trim().slice(0, n) : "");
+// Prefer the page the visitor actually submitted, then the Referer header.
+export function pageUrl(data, request) {
+  const posted = clip(data && data.page_url, 500);
+  if (/^https?:\/\//i.test(posted)) return posted;
+  return clip((request && request.headers.get("referer")) || "", 500);
+}
 export const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 export async function sha(s) {
@@ -72,12 +78,24 @@ export function notifyBody(lead, reply, live) {
   const subj = encodeURIComponent("Re: " + (lead.subject || "Your inquiry"));
   const name = `${lead.first} ${lead.last || ""}`.trim();
   const rows = [["Name", name], [lead.source === "job_application" ? "Applying for" : "Dealership / company", lead.dealership], [lead.source === "job_application" ? "Portfolio / website" : "Website", lead.website], ["Email", lead.email], ["Phone", lead.phone], ["Subject", lead.subject], ["Source", lead.source || "contact"], ["Page", lead.source_page]];
+  if (lead.sms) {
+    rows.push(
+      ["SMS consent", lead.sms.consent ? "Yes" : "No"],
+      ["SMS consent version", lead.sms.version || ""],
+      ["SMS consent recorded at", lead.sms.at || ""],
+      ["SMS consent page", lead.sms.page_url || ""],
+      ["SMS consent text", lead.sms.text || ""],
+      ["User agent", lead.sms.user_agent || ""],
+      ["IP", lead.sms.ip || ""],
+      ["IP hash", lead.sms.ip_hash || ""],
+    );
+  }
   const links = [lead.email && `<a href="mailto:${esc(lead.email)}?subject=${subj}">Email ${esc(lead.first)}</a>`, digits && `<a href="tel:${esc(digits)}">Call ${esc(lead.phone)}</a>`, digits && `<a href="sms:${esc(digits)}">Text ${esc(lead.phone)}</a>`].filter(Boolean).join(" &nbsp;|&nbsp; ");
   const tx = lead.transcript ? `<h3>Chat transcript</h3><pre style="white-space:pre-wrap;font-family:inherit;background:#f4f4f4;padding:10px">${esc(lead.transcript)}</pre>` : "";
   const html = `<div style="font-family:Arial,sans-serif;font-size:15px">
 <h2>${lead.is_test ? "[TEST] " : ""}New ${leadKind(lead)}: ${esc(name)}, ${esc(lead.dealership)}</h2>
 <p>${links}</p>
-<table cellpadding="4">${rows.map(([k, v]) => `<tr><td><b>${k}</b></td><td>${esc(v || "")}</td></tr>`).join("")}</table>
+<table cellpadding="4">${rows.map(([k, v]) => `<tr><td style="vertical-align:top"><b>${esc(k)}</b></td><td>${k === "SMS consent text" ? `<div style="white-space:pre-wrap">${esc(v || "")}</div>` : esc(v || "")}</td></tr>`).join("")}</table>
 <h3>Message</h3><pre style="white-space:pre-wrap;font-family:inherit">${esc(lead.message)}</pre>${tx}
 ${reply ? `<h3>${live ? "Auto-reply sent to inquirer" : "Draft reply that would have been sent"}</h3>
 <pre style="white-space:pre-wrap;font-family:inherit;background:#f4f4f4;padding:10px">${esc(reply.text)}</pre>
@@ -89,16 +107,43 @@ ${reply ? `<h3>${live ? "Auto-reply sent to inquirer" : "Draft reply that would 
   return { html, text };
 }
 
+// Set after a contact lead successfully writes sms_meta, so later requests skip the ALTER.
+let smsMetaReady = false;
+
 // Insert lead, notify Lance, optional auto-reply, optional webhook. Same path for contact form and chat.
 export async function processLead({ env, waitUntil, lead, ipHash, reply }) {
   const db = env.DB;
   const live = String(env.AUTOREPLY_LIVE || "false").toLowerCase() === "true";
   const canAuto = live && reply && lead.email && lead.source !== "chat";
+  if (lead.sms) lead.sms.ip_hash = ipHash;
+  const createdAt = new Date().toISOString();
+  const legacySql = "INSERT INTO leads (created_at,ip_hash,first,last,dealership,website,email,phone,subject,message,source_page,ai_reply,reply_source,autoreply_sent,is_test,source,transcript) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  const smsSql = "INSERT INTO leads (created_at,ip_hash,first,last,dealership,website,email,phone,subject,message,source_page,ai_reply,reply_source,autoreply_sent,is_test,source,transcript,sms_meta) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  const baseBind = [createdAt, ipHash, lead.first, lead.last || "", lead.dealership, lead.website || "", lead.email || "", lead.phone || "", lead.subject, lead.message, lead.source_page, reply ? reply.text : null, reply ? reply.source : null, canAuto ? 1 : 0, lead.is_test, lead.source || "contact", lead.transcript || null];
   let leadId = null;
   if (db) {
-    const r = await db.prepare("INSERT INTO leads (created_at,ip_hash,first,last,dealership,website,email,phone,subject,message,source_page,ai_reply,reply_source,autoreply_sent,is_test,source,transcript) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")
-      .bind(new Date().toISOString(), ipHash, lead.first, lead.last || "", lead.dealership, lead.website || "", lead.email || "", lead.phone || "", lead.subject, lead.message, lead.source_page, reply ? reply.text : null, reply ? reply.source : null, canAuto ? 1 : 0, lead.is_test, lead.source || "contact", lead.transcript || null).run();
-    leadId = r?.meta?.last_row_id ?? null;
+    if (lead.sms) {
+      let inserted = false;
+      try {
+        if (!smsMetaReady) {
+          try { await db.prepare("ALTER TABLE leads ADD COLUMN sms_meta TEXT").run(); } catch { /* column already exists */ }
+        }
+        const r = await db.prepare(smsSql).bind(...baseBind, JSON.stringify(lead.sms)).run();
+        leadId = r?.meta?.last_row_id ?? null;
+        inserted = true;
+        smsMetaReady = true;
+      } catch (e) {
+        console.log("sms_meta insert failed", String(e).slice(0, 200));
+      }
+      // Column missing or migration blocked: keep the original insert so the lead is not dropped.
+      if (!inserted) {
+        const r = await db.prepare(legacySql).bind(...baseBind).run();
+        leadId = r?.meta?.last_row_id ?? null;
+      }
+    } else {
+      const r = await db.prepare(legacySql).bind(...baseBind).run();
+      leadId = r?.meta?.last_row_id ?? null;
+    }
   }
   const name = `${lead.first} ${lead.last || ""}`.trim();
   const n = notifyBody(lead, reply, live);
@@ -107,8 +152,19 @@ export async function processLead({ env, waitUntil, lead, ipHash, reply }) {
   if (canAuto) autoStatus = await sendEmail(env, { to: lead.email, subject: "Thanks for reaching out to The Cooperative Agency", text: reply.text, html: `<pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:15px">${esc(reply.text)}</pre>` });
   if (db && leadId) waitUntil(db.prepare("UPDATE leads SET notify_status=?, autoreply_status=? WHERE id=?").bind(notifyStatus, autoStatus, leadId).run().catch(() => {}));
   if (env.LEAD_WEBHOOK_URL && env.LEAD_WEBHOOK_AUTH) {
+    const payload = { id: leadId, test: !!lead.is_test, source: lead.source || "contact", name, company: lead.dealership, email: lead.email, phone: lead.phone, website: lead.website, subject: lead.subject, message: lead.message, transcript: lead.transcript || undefined, autoreply: canAuto && autoStatus.startsWith("sent") ? "sent" : "drafted", ai_reply: reply ? reply.text : undefined, reply_source: reply ? reply.source : undefined };
+    if (lead.sms) {
+      payload.sms_consent = lead.sms.consent ? "yes" : "no";
+      payload.sms_consent_version = lead.sms.version;
+      payload.sms_consent_text = lead.sms.text;
+      payload.sms_consent_at = lead.sms.at;
+      payload.sms_consent_page_url = lead.sms.page_url;
+      payload.user_agent = lead.sms.user_agent || undefined;
+      payload.ip = lead.sms.ip || undefined;
+      payload.ip_hash = lead.sms.ip_hash || undefined;
+    }
     waitUntil(fetch(env.LEAD_WEBHOOK_URL, { method: "POST", headers: { "content-type": "application/json", authorization: env.LEAD_WEBHOOK_AUTH },
-      body: JSON.stringify({ id: leadId, test: !!lead.is_test, source: lead.source || "contact", name, company: lead.dealership, email: lead.email, phone: lead.phone, website: lead.website, subject: lead.subject, message: lead.message, transcript: lead.transcript || undefined, autoreply: canAuto && autoStatus.startsWith("sent") ? "sent" : "drafted", ai_reply: reply ? reply.text : undefined, reply_source: reply ? reply.source : undefined }) }).catch(() => {}));
+      body: JSON.stringify(payload) }).catch(() => {}));
   }
   return { leadId, notifyStatus };
 }

@@ -1,5 +1,5 @@
 // /api/apply: careers job application. Same lead pipeline as /api/contact (D1 + email to Lance + lead webhook), tagged source=job_application. No AI auto-reply.
-import { json, clip, readBody, ipHashOf, leadRateLimited, processLead } from "./_shared.js";
+import { json, clip, readBody, ipHashOf, leadRateLimited, processLead, pageUrl } from "./_shared.js";
 
 const ROLE = "Content Creator";
 const INTERESTS = { photo: "Inventory photography", social: "Social content", ai: "AI & systems" };
@@ -28,7 +28,7 @@ export async function onRequestPost(context) {
     `Portfolio / website: ${portfolio || "(none given)"}`, "Confirmed 21 or older: yes", `Inventory photo sample: ${sample || "(none given)"}`, `Interested in: ${interests.join(", ") || "(not specified)"}`, "", "Intro:", intro].join("\n");
   const lead = { first, last, dealership: `Job applicant (${ROLE})`, website: portfolio, email, phone,
     subject: `${isTest ? "TEST " : ""}Job application: ${ROLE}`, message,
-    source_page: clip(request.headers.get("referer") || "", 300), source: "job_application", is_test: isTest ? 1 : 0 };
+    source_page: pageUrl(data, request), source: "job_application", is_test: isTest ? 1 : 0 };
 
   const ipHash = await ipHashOf(request);
   if (await leadRateLimited(env.DB, ipHash)) return json({ ok: false, error: "rate-limited" }, 429);
