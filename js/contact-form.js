@@ -43,6 +43,8 @@
         .then(function () {
           form.setAttribute("data-state", "sent");
           form.reset();
+          var thanks = form.querySelector(".form-thanks");
+          if (thanks && thanks.scrollIntoView) thanks.scrollIntoView({ block: "start" });
         })
         .catch(function () {
           form.setAttribute("data-state", "error");
