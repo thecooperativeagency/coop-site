@@ -180,6 +180,7 @@
     video.setAttribute("playsinline", "");
     video.setAttribute("preload", "none");
     if (item.poster) video.poster = item.poster;
+    if (item.alt) video.setAttribute("aria-label", item.alt);
     video.dataset.mp4 = item.mp4 || "";
     video.dataset.webm = item.webm || "";
     video.addEventListener("click", function () {
@@ -216,33 +217,35 @@
     var engine = document.querySelector("[data-media-slot='engine']");
     var content = document.querySelector("[data-media-slot='content']");
     if (engine) {
-      var stills = document.createElement("div");
-      stills.className = "ps-stills";
-      data.filter(function (item) { return item.role === "still"; }).forEach(function (item) {
-        var fig = document.createElement("figure");
-        fig.className = "ps-still";
-        fig.setAttribute("data-aspect", item.aspect || "16:9");
-        var img = document.createElement("img");
-        img.src = item.src || item.poster || "";
-        img.alt = item.alt || "";
-        fig.appendChild(img);
-        var cap = document.createElement("figcaption");
-        cap.textContent = "Placeholder · " + (item.title || "Drone still");
-        fig.appendChild(cap);
-        stills.appendChild(fig);
-      });
-      engine.appendChild(stills);
       data.filter(function (item) { return item.role === "band"; }).forEach(function (item) {
         var band = document.createElement("figure");
         band.className = "ps-media-band";
         var video = makeVideo(item);
         videos.push(video);
         band.appendChild(video);
-        var cap = document.createElement("figcaption");
-        cap.textContent = "Placeholder · " + (item.title || "Lot clip");
-        band.appendChild(cap);
         engine.appendChild(band);
       });
+      var stills = document.createElement("div");
+      stills.className = "ps-stills";
+      data.filter(function (item) { return item.role === "still"; }).forEach(function (item) {
+        var fig = document.createElement("figure");
+        fig.className = "ps-still";
+        fig.setAttribute("data-aspect", item.aspect || "16:9");
+        var pic = document.createElement("picture");
+        if (item.src_sm) {
+          var source = document.createElement("source");
+          source.media = "(max-width: 900px)";
+          source.srcset = item.src_sm;
+          pic.appendChild(source);
+        }
+        var img = document.createElement("img");
+        img.src = item.src || "";
+        img.alt = item.alt || "";
+        pic.appendChild(img);
+        fig.appendChild(pic);
+        stills.appendChild(fig);
+      });
+      if (stills.childElementCount) engine.appendChild(stills);
     }
     if (content) {
       var row = document.createElement("div");
@@ -254,27 +257,21 @@
         videos.push(video);
         fig.appendChild(video);
         var cap = document.createElement("figcaption");
-        var label = document.createElement("span");
-        label.textContent = "Placeholder · " + (item.title || "");
-        cap.appendChild(label);
-        if (item.caption) {
-          if (item.ig_url) {
-            var a = document.createElement("a");
-            a.href = item.ig_url;
-            a.target = "_blank";
-            a.rel = "noopener";
-            a.textContent = item.caption;
-            cap.appendChild(a);
-          } else {
-            var span = document.createElement("span");
-            span.textContent = item.caption;
-            cap.appendChild(span);
-          }
+        var caption = item.caption || "Published on Instagram";
+        if (item.ig_url) {
+          var a = document.createElement("a");
+          a.href = item.ig_url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = caption;
+          cap.appendChild(a);
+        } else {
+          cap.textContent = caption;
         }
         fig.appendChild(cap);
         row.appendChild(fig);
       });
-      content.appendChild(row);
+      if (row.childElementCount) content.appendChild(row);
     }
     if (!videos.length || !("IntersectionObserver" in window)) return;
     var io = new IntersectionObserver(function (entries) {

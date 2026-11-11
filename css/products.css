@@ -423,6 +423,10 @@ a.ts-card { text-decoration: none; }
   --pq-mark: #cfcfcf;
   --pq-attr: #555;
   --pq-space: clamp(80px, 10vw, 160px);
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
+  flex: none;
   margin: 0;
   padding-block: var(--pq-space);
   padding-inline: 8% 0;
@@ -430,8 +434,9 @@ a.ts-card { text-decoration: none; }
 }
 .ps-pullquote blockquote {
   position: relative;
+  width: 100%;
+  max-width: none;
   margin: 0;
-  max-width: var(--pq-measure);
   border: 0;
   padding: 0;
   animation: pq-in 600ms ease-out both;
@@ -439,6 +444,9 @@ a.ts-card { text-decoration: none; }
 .ps-pullquote p {
   position: relative;
   z-index: 1;
+  display: block;
+  width: min(11em, 100%);
+  max-width: 11em;
   margin: 0;
   font-family: var(--pq-font);
   font-weight: 400;
@@ -477,6 +485,7 @@ a.ts-card { text-decoration: none; }
   text-align: center;
 }
 .ps-pullquote--center blockquote { margin-inline: auto; }
+.ps-pullquote--center p { margin-inline: auto; }
 .ps-pullquote--center .ps-pullquote__rule { margin-inline: auto; }
 .ps-pullquote--center .ps-pullquote__mark { left: 50%; transform: translateX(-50%); }
 @keyframes pq-in {
@@ -492,7 +501,6 @@ a.ts-card { text-decoration: none; }
     padding-inline: 0;
     padding-block: clamp(56px, 12vw, 88px);
   }
-  .ps-pullquote blockquote { max-width: 18ch; }
   .ps-pullquote__mark { font-size: calc(var(--pq-size) * 2.2); }
 }
 
@@ -585,12 +593,14 @@ a.ts-card { text-decoration: none; }
 }
 .ps-stills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.85rem;
   margin-top: var(--space-3);
+  min-width: 0;
 }
 .ps-still { margin: 0; min-width: 0; }
 .ps-still[data-aspect="16:9"] img { aspect-ratio: 16 / 9; }
+.ps-still[data-aspect="4:3"] img { aspect-ratio: 4 / 3; }
 .ps-still[data-aspect="1:1"] img { aspect-ratio: 1 / 1; }
 .ps-still[data-aspect="9:16"] img { aspect-ratio: 9 / 16; }
 .ps-still img { width: 100%; object-fit: cover; display: block; }
@@ -604,6 +614,7 @@ a.ts-card { text-decoration: none; }
 }
 @media (max-width: 900px) {
   .ps-phones { gap: 0.45rem; }
+  .ps-stills { grid-template-columns: 1fr; }
   .ps-pair__row { grid-template-columns: 1fr; }
   .ps-pair__source--photo { aspect-ratio: 16 / 10; }
 }

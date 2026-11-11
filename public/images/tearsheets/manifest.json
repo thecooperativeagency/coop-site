@@ -11,16 +11,6 @@
   },
   {
     "group": "get-found",
-    "store": "BMW of Jackson",
-    "title": "BMW Value Service feature page",
-    "platform": "Motive",
-    "thumb": "./public/images/tearsheets/get-found_bmw-of-jackson_value-service-feature-thumb.webp",
-    "full": "./public/images/tearsheets/get-found_bmw-of-jackson_value-service-feature-full.webp",
-    "alt": "BMW of Jackson Value Service page, with a red convertible lifestyle hero and service copy.",
-    "url": "https://bmwofjackson.net/bmw-value-service"
-  },
-  {
-    "group": "get-found",
     "store": "Harris Porsche",
     "title": "Service and parts specials",
     "platform": "Any platform",
@@ -68,16 +58,6 @@
     "full": "./public/images/tearsheets/newsletters-offers_audi-baton-rouge_special-offers-full.webp",
     "alt": "Audi Baton Rouge November offers page, with a Q5 APR hero and a grid of current new-vehicle offers.",
     "url": "https://audibatonrouge.com/audi-baton-rouge-special-offers"
-  },
-  {
-    "group": "newsletters-offers",
-    "store": "BMW of Jackson",
-    "title": "Service offers",
-    "platform": "Motive",
-    "thumb": "./public/images/tearsheets/newsletters-offers_bmw-of-jackson_service-offers-thumb.webp",
-    "full": "./public/images/tearsheets/newsletters-offers_bmw-of-jackson_service-offers-full.webp",
-    "alt": "BMW of Jackson service offers page, with oil change, brakes, and service financing offer graphics.",
-    "url": "https://bmwofjackson.net/service-offers"
   },
   {
     "group": "newsletters-offers",
