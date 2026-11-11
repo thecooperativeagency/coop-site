@@ -571,12 +571,16 @@ a.ts-card { text-decoration: none; }
 }
 
 .ps-phones {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
   gap: 0.85rem;
-  width: min(46rem, 100%);
-  margin: var(--space-3) auto 0;
+  width: min(28rem, 100%);
+  margin: var(--space-3) 0 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
 }
+.ps-phone { flex: 0 0 11.5rem; width: 11.5rem; scroll-snap-align: start; }
 .ps-phone { margin: 0; min-width: 0; }
 .ps-phone video, .ps-phone img {
   width: 100%;
@@ -732,14 +736,27 @@ a.ts-card { text-decoration: none; }
   max-width: 100%;
 }
 #svc-content .stack-lg > * { min-width: 0; }
-.ps-drone { width: min(720px, 100%); }
+.ps-drone { width: min(40rem, 100%); margin-inline: auto; }
 .ps-drone video {
   width: 100%;
   max-height: 60vh;
   aspect-ratio: 16 / 9;
   object-fit: contain;
+  object-position: center center;
   background: #111;
   display: block;
+}
+.footer-band__media img {
+  object-fit: contain;
+  object-position: center center;
+  background: #e4efe2;
+}
+.footer-band__inner { align-content: end; }
+@media (max-width: 900px) {
+  .footer-band { min-height: 0; display: flex; flex-direction: column; }
+  .footer-band__media { position: relative; inset: auto; height: auto; }
+  .footer-band__media img { width: 100%; height: auto; max-height: none; }
+  .footer-band__inner { min-height: 0; padding-bottom: var(--space-3); }
 }
 .ps-still img { width: 100%; height: auto; object-fit: contain; background: #e8e8e8; display: block; }
 .svc-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -747,6 +764,14 @@ a.ts-card { text-decoration: none; }
 .ps-inline-cta { margin-top: var(--space-2); }
 @media (max-width: 900px) {
   .ps-oneshoot, .ps-posts, .svc-grid--4 { grid-template-columns: 1fr; }
-  .ps-drone { width: 100%; }
-  .ps-drone video { max-height: none; }
+  .ps-drone { width: min(40rem, 100%); }
+  .ps-drone video { max-height: 60vh; }
+  .site-header { align-items: center; flex-wrap: nowrap; padding-top: 0.35rem; }
+  .logo-wordmark { width: 5.4rem; }
+  .nav { flex-wrap: nowrap; gap: 0.35rem; font-size: 0.68rem; }
+  .nav a, .btn-pill, .ps-bar a, button[type="submit"], .link-cta-sm {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
