@@ -1,6 +1,26 @@
 [
   {
     "group": "get-found",
+    "store": "Brian Harris BMW",
+    "title": "Lease, finance, or buy a BMW. Buyer's guide",
+    "platform": "Motive",
+    "thumb": "./public/images/tearsheets/get-found_brian-harris-bmw_buyers-guide-thumb.webp",
+    "full": "./public/images/tearsheets/get-found_brian-harris-bmw_buyers-guide-full.webp",
+    "alt": "Brian Harris BMW buyer's guide page on leasing, financing, or buying, with an aerial photo of the dealership.",
+    "url": "https://www.brianharrisbmw.com/bmw-buyers-guide"
+  },
+  {
+    "group": "get-found",
+    "store": "Audi Baton Rouge",
+    "title": "Should I lease, finance, or pay cash? Buyer's guide",
+    "platform": "Motive",
+    "thumb": "./public/images/tearsheets/get-found_audi-baton-rouge_buyers-guide-thumb.webp",
+    "full": "./public/images/tearsheets/get-found_audi-baton-rouge_buyers-guide-full.webp",
+    "alt": "Audi Baton Rouge buyer's guide page on leasing, financing, or paying cash, with an aerial photo of the dealership.",
+    "url": "https://audibatonrouge.com/audi-buyers-guide"
+  },
+  {
+    "group": "get-found",
     "store": "Audi Baton Rouge",
     "title": "2027 Audi Q9 feature page",
     "platform": "Motive",
@@ -20,34 +40,44 @@
     "url": "https://audibatonrouge.com/all-new-audi-q3"
   },
   {
-    "group": "get-found",
-    "store": "Audi Baton Rouge",
-    "title": "Should I lease, finance, or pay cash? Buyer's guide",
-    "platform": "Motive",
-    "thumb": "./public/images/tearsheets/get-found_audi-baton-rouge_buyers-guide-thumb.webp",
-    "full": "./public/images/tearsheets/get-found_audi-baton-rouge_buyers-guide-full.webp",
-    "alt": "Audi Baton Rouge buyer's guide page on leasing, financing, or paying cash, with an aerial photo of the dealership.",
-    "url": "https://audibatonrouge.com/audi-buyers-guide"
-  },
-  {
-    "group": "get-found",
+    "group": "newsletters-offers",
     "store": "Brian Harris BMW",
-    "title": "Lease, finance, or buy a BMW. Buyer's guide",
+    "title": "The Ultimate Driver issue 02",
     "platform": "Motive",
-    "thumb": "./public/images/tearsheets/get-found_brian-harris-bmw_buyers-guide-thumb.webp",
-    "full": "./public/images/tearsheets/get-found_brian-harris-bmw_buyers-guide-full.webp",
-    "alt": "Brian Harris BMW buyer's guide page on leasing, financing, or buying, with an aerial photo of the dealership.",
-    "url": "https://www.brianharrisbmw.com/bmw-buyers-guide"
+    "thumb": "./public/images/tearsheets/newsletters-offers_brian-harris-bmw_ultimate-driver-02-thumb.webp",
+    "full": "./public/images/tearsheets/newsletters-offers_brian-harris-bmw_ultimate-driver-02-full.webp",
+    "alt": "Brian Harris BMW Ultimate Driver issue 02 newsletter on the dealer site, opening with the all-new BMW X5.",
+    "url": "https://brianharrisbmw.com/ultimate-driver-issue-02"
   },
   {
     "group": "newsletters-offers",
-    "store": "Audi Baton Rouge",
-    "title": "Service Specials",
-    "platform": "Motive",
-    "thumb": "./public/images/tearsheets/newsletters-offers_audi-baton-rouge_service-specials-thumb.webp",
-    "full": "./public/images/tearsheets/newsletters-offers_audi-baton-rouge_service-specials-full.webp",
-    "alt": "Audi Baton Rouge service specials page, with oil-and-filter, recommended-service, and alignment offer cards.",
-    "url": "https://audibatonrouge.com/service-specials"
+    "store": "Brian Harris BMW",
+    "title": "November sales email: Road Home Sales Event",
+    "platform": "Any platform",
+    "thumb": "./public/images/tearsheets/newsletters-offers_brian-harris-bmw_nov-sales-email-thumb.webp",
+    "full": "./public/images/tearsheets/newsletters-offers_brian-harris-bmw_nov-sales-email-full.webp",
+    "alt": "Brian Harris BMW November sales email as sent, opening with the Road Home Sales Event and featured X5, X3, and X7 offers.",
+    "url": "https://thecooperativeagency.github.io/seo-pages/emails/november-2026/bh-bmw-november-2026-sales-email.html"
+  },
+  {
+    "group": "newsletters-offers",
+    "store": "Harris Porsche",
+    "title": "New Porsche specials, Your Macan Is Here",
+    "platform": "Any platform",
+    "thumb": "./public/images/tearsheets/newsletters-offers_harris-porsche_specials-new-thumb.webp",
+    "full": "./public/images/tearsheets/newsletters-offers_harris-porsche_specials-new-full.webp",
+    "alt": "Harris Porsche new-vehicle specials page, with a Your Macan Is Here hero and in-stock models.",
+    "url": "https://harris.porsche.com/en/specials/new"
+  },
+  {
+    "group": "newsletters-offers",
+    "store": "Harris Porsche",
+    "title": "Service and parts specials",
+    "platform": "Any platform",
+    "thumb": "./public/images/tearsheets/newsletters-offers_harris-porsche_service-parts-specials-thumb.webp",
+    "full": "./public/images/tearsheets/newsletters-offers_harris-porsche_service-parts-specials-full.webp",
+    "alt": "Harris Porsche service and parts specials page, with a showroom photo of cars on the shop floor and service offers.",
+    "url": "https://harris.porsche.com/en/specials/service-parts"
   },
   {
     "group": "newsletters-offers",
@@ -71,53 +101,13 @@
   },
   {
     "group": "newsletters-offers",
-    "store": "Brian Harris BMW",
-    "title": "November sales email: Road Home Sales Event",
-    "platform": "Any platform",
-    "thumb": "./public/images/tearsheets/newsletters-offers_brian-harris-bmw_nov-sales-email-thumb.webp",
-    "full": "./public/images/tearsheets/newsletters-offers_brian-harris-bmw_nov-sales-email-full.webp",
-    "alt": "Brian Harris BMW November sales email as sent, opening with the Road Home Sales Event and featured X5, X3, and X7 offers.",
-    "url": "https://thecooperativeagency.github.io/seo-pages/emails/november-2026/bh-bmw-november-2026-sales-email.html"
-  },
-  {
-    "group": "newsletters-offers",
-    "store": "Brian Harris BMW",
-    "title": "The Ultimate Driver issue 02",
-    "platform": "Motive",
-    "thumb": "./public/images/tearsheets/newsletters-offers_brian-harris-bmw_ultimate-driver-02-thumb.webp",
-    "full": "./public/images/tearsheets/newsletters-offers_brian-harris-bmw_ultimate-driver-02-full.webp",
-    "alt": "Brian Harris BMW Ultimate Driver issue 02 newsletter on the dealer site, opening with the all-new BMW X5.",
-    "url": "https://brianharrisbmw.com/ultimate-driver-issue-02"
-  },
-  {
-    "group": "newsletters-offers",
-    "store": "Harris Porsche",
-    "title": "New Porsche specials, Your Macan Is Here",
-    "platform": "Any platform",
-    "thumb": "./public/images/tearsheets/newsletters-offers_harris-porsche_specials-new-thumb.webp",
-    "full": "./public/images/tearsheets/newsletters-offers_harris-porsche_specials-new-full.webp",
-    "alt": "Harris Porsche new-vehicle specials page, with a Your Macan Is Here hero and in-stock models.",
-    "url": "https://harris.porsche.com/en/specials/new"
-  },
-  {
-    "group": "newsletters-offers",
-    "store": "Harris Porsche",
-    "title": "Service and parts specials",
-    "platform": "Any platform",
-    "thumb": "./public/images/tearsheets/newsletters-offers_harris-porsche_service-parts-specials-thumb.webp",
-    "full": "./public/images/tearsheets/newsletters-offers_harris-porsche_service-parts-specials-full.webp",
-    "alt": "Harris Porsche service and parts specials page, with a showroom photo of cars on the shop floor and service offers.",
-    "url": "https://harris.porsche.com/en/specials/service-parts"
-  },
-  {
-    "group": "content-social",
     "store": "Audi Baton Rouge",
-    "title": "Homepage",
+    "title": "Service Specials",
     "platform": "Motive",
-    "thumb": "./public/images/tearsheets/content-social_audi-baton-rouge_homepage-thumb.webp",
-    "full": "./public/images/tearsheets/content-social_audi-baton-rouge_homepage-full.webp",
-    "alt": "Audi Baton Rouge homepage, with a Q5 offer hero, client reviews, November offers, and the upcoming Q9 flagship.",
-    "url": "https://audibatonrouge.com/"
+    "thumb": "./public/images/tearsheets/newsletters-offers_audi-baton-rouge_service-specials-thumb.webp",
+    "full": "./public/images/tearsheets/newsletters-offers_audi-baton-rouge_service-specials-full.webp",
+    "alt": "Audi Baton Rouge service specials page, with oil-and-filter, recommended-service, and alignment offer cards.",
+    "url": "https://audibatonrouge.com/service-specials"
   },
   {
     "group": "content-social",
@@ -128,16 +118,6 @@
     "full": "./public/images/tearsheets/content-social_brian-harris-bmw_homepage-full.webp",
     "alt": "Brian Harris BMW homepage, with the Road Home Sales Event hero, offer tiles, and service creative.",
     "url": "https://brianharrisbmw.com/"
-  },
-  {
-    "group": "content-social",
-    "store": "Audi Baton Rouge",
-    "title": "Published social post: all-new Q5 at the country club",
-    "platform": "Motive",
-    "thumb": "./public/images/tearsheets/content-social_audi-baton-rouge_q5-country-club-post-thumb.webp",
-    "full": "./public/images/tearsheets/content-social_audi-baton-rouge_q5-country-club-post-full.webp",
-    "alt": "Audi Baton Rouge social post of a black all-new Audi Q5 parked in front of a white country-club building.",
-    "url": ""
   },
   {
     "group": "content-social",
@@ -167,6 +147,26 @@
     "thumb": "./public/images/tearsheets/content-social_multi-store_social-feed-grid-thumb.webp",
     "full": "./public/images/tearsheets/content-social_multi-store_social-feed-grid-full.webp",
     "alt": "A feed-style grid of eight published social posts from Audi Baton Rouge, Brian Harris BMW, BMW of Jackson, and Harris Porsche, each with the store name and caption.",
+    "url": ""
+  },
+  {
+    "group": "content-social",
+    "store": "Audi Baton Rouge",
+    "title": "Homepage",
+    "platform": "Motive",
+    "thumb": "./public/images/tearsheets/content-social_audi-baton-rouge_homepage-thumb.webp",
+    "full": "./public/images/tearsheets/content-social_audi-baton-rouge_homepage-full.webp",
+    "alt": "Audi Baton Rouge homepage, with a Q5 offer hero, client reviews, November offers, and the upcoming Q9 flagship.",
+    "url": "https://audibatonrouge.com/"
+  },
+  {
+    "group": "content-social",
+    "store": "Audi Baton Rouge",
+    "title": "Published social post: all-new Q5 at the country club",
+    "platform": "Motive",
+    "thumb": "./public/images/tearsheets/content-social_audi-baton-rouge_q5-country-club-post-thumb.webp",
+    "full": "./public/images/tearsheets/content-social_audi-baton-rouge_q5-country-club-post-full.webp",
+    "alt": "Audi Baton Rouge social post of a black all-new Audi Q5 parked in front of a white country-club building.",
     "url": ""
   },
   {
