@@ -504,6 +504,23 @@ a.ts-card { text-decoration: none; }
   .ps-pullquote__mark { font-size: calc(var(--pq-size) * 2.2); }
 }
 
+.ps-flow-strip,
+.ps-lead-proof {
+  display: block;
+  width: 100%;
+  margin: var(--space-3) 0 0;
+  background: #e8e8e8;
+}
+.ps-flow-strip img,
+.ps-lead-proof {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #e8e8e8;
+  border: 0;
+  box-shadow: none;
+}
+
 .ps-flow {
   display: flex;
   flex-wrap: wrap;
