@@ -11,13 +11,13 @@
   },
   {
     "group": "get-found",
-    "store": "Harris Porsche",
-    "title": "Service and parts specials",
-    "platform": "Any platform",
-    "thumb": "./public/images/tearsheets/get-found_harris-porsche_service-parts-specials-thumb.webp",
-    "full": "./public/images/tearsheets/get-found_harris-porsche_service-parts-specials-full.webp",
-    "alt": "Harris Porsche service and parts specials page, with a showroom photo of cars on the shop floor and service offers.",
-    "url": "https://harris.porsche.com/en/specials/service-parts"
+    "store": "Audi Baton Rouge",
+    "title": "All-new Audi Q3 feature page",
+    "platform": "Motive",
+    "thumb": "./public/images/tearsheets/get-found_audi-baton-rouge_q3-feature-thumb.webp",
+    "full": "./public/images/tearsheets/get-found_audi-baton-rouge_q3-feature-full.webp",
+    "alt": "Audi Baton Rouge all-new 2026 Audi Q3 feature page, with a road hero, action tiles, and current Q3 inventory.",
+    "url": "https://audibatonrouge.com/all-new-audi-q3"
   },
   {
     "group": "get-found",
@@ -38,6 +38,16 @@
     "full": "./public/images/tearsheets/get-found_brian-harris-bmw_buyers-guide-full.webp",
     "alt": "Brian Harris BMW buyer's guide page on leasing, financing, or buying, with an aerial photo of the dealership.",
     "url": "https://www.brianharrisbmw.com/bmw-buyers-guide"
+  },
+  {
+    "group": "newsletters-offers",
+    "store": "Audi Baton Rouge",
+    "title": "Service Specials",
+    "platform": "Motive",
+    "thumb": "./public/images/tearsheets/newsletters-offers_audi-baton-rouge_service-specials-thumb.webp",
+    "full": "./public/images/tearsheets/newsletters-offers_audi-baton-rouge_service-specials-full.webp",
+    "alt": "Audi Baton Rouge service specials page, with oil-and-filter, recommended-service, and alignment offer cards.",
+    "url": "https://audibatonrouge.com/service-specials"
   },
   {
     "group": "newsletters-offers",
@@ -88,6 +98,16 @@
     "full": "./public/images/tearsheets/newsletters-offers_harris-porsche_specials-new-full.webp",
     "alt": "Harris Porsche new-vehicle specials page, with a Your Macan Is Here hero and in-stock models.",
     "url": "https://harris.porsche.com/en/specials/new"
+  },
+  {
+    "group": "newsletters-offers",
+    "store": "Harris Porsche",
+    "title": "Service and parts specials",
+    "platform": "Any platform",
+    "thumb": "./public/images/tearsheets/newsletters-offers_harris-porsche_service-parts-specials-thumb.webp",
+    "full": "./public/images/tearsheets/newsletters-offers_harris-porsche_service-parts-specials-full.webp",
+    "alt": "Harris Porsche service and parts specials page, with a showroom photo of cars on the shop floor and service offers.",
+    "url": "https://harris.porsche.com/en/specials/service-parts"
   },
   {
     "group": "content-social",
