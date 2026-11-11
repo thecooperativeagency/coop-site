@@ -278,13 +278,15 @@
 }
 
 .ps-row--social {
+  --row-sum: 2.725;
+  --row-gaps: calc(var(--space-2) * 3);
   width: 100%;
-  grid-template-columns: 1fr 1fr;
-  justify-items: start;
+  grid-template-columns: 0.8fr 0.8fr 0.5625fr 0.5625fr;
 }
 
-.ps-row--social .ps-ar-916 {
-  width: calc(100% * 9 / 16 * 5 / 4);
+.ps-row--social .ps-ex__frame img,
+.ps-row--social .ps-ex__frame video {
+  object-fit: contain;
 }
 
 .ps-row--air {
@@ -611,6 +613,10 @@
 
   .ps-group {
     font-size: 18px;
+  }
+
+  .ps-row--social {
+    grid-template-columns: 1fr 1fr;
   }
 
   .ps-doors {
