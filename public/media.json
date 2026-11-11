@@ -39,17 +39,6 @@
     "caption": "Published on Instagram"
   },
   {
-    "type": "video",
-    "store": "BMW of Jackson",
-    "title": "BMW of Jackson lot",
-    "aspect": "16:9",
-    "role": "band",
-    "mp4": "./public/videos/bmw-of-jackson-lot.mp4",
-    "webm": "./public/videos/bmw-of-jackson-lot.webm",
-    "poster": "./public/videos/bmw-of-jackson-lot-poster.jpg",
-    "alt": "Aerial and lot footage of the BMW of Jackson storefront and inventory"
-  },
-  {
     "type": "image",
     "role": "still",
     "store": "Audi Baton Rouge",

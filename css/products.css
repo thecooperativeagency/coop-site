@@ -584,7 +584,7 @@ a.ts-card { text-decoration: none; }
   border-radius: 1.25rem;
   display: block;
 }
-.ps-phone figcaption, .ps-still figcaption, .ps-media-band figcaption {
+.ps-phone figcaption, .ps-still figcaption {
   margin-top: 0.4rem;
   font-size: 0.8125rem;
   color: #555;
@@ -604,14 +604,6 @@ a.ts-card { text-decoration: none; }
 .ps-still[data-aspect="1:1"] img { aspect-ratio: 1 / 1; }
 .ps-still[data-aspect="9:16"] img { aspect-ratio: 9 / 16; }
 .ps-still img { width: 100%; object-fit: cover; display: block; }
-.ps-media-band { margin: var(--space-3) 0 0; }
-.ps-media-band video, .ps-media-band img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-  background: #111;
-}
 .ts-swipe-hint {
   display: none;
   margin: var(--space-2) 0 0.35rem;
