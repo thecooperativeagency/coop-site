@@ -521,23 +521,6 @@ a.ts-card { text-decoration: none; }
   box-shadow: none;
 }
 
-.ps-flow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.8rem;
-  list-style: none;
-  margin: var(--space-2) 0 0;
-  padding: 0;
-}
-.ps-flow li {
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #555;
-}
-.ps-flow li + li::before { content: "· "; }
-
 .ps-pairs {
   display: grid;
   gap: clamp(2rem, 4vw, 3.5rem);
