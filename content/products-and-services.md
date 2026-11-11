@@ -72,6 +72,8 @@ Real lot, real staff, real inventory. No stock images, ever. We shoot on your lo
 - Reels, walkarounds and short-form video
 - Drone footage
 - Graphics that meet your manufacturer's brand rules
+- Website creative that matches the rest of your campaign
+- Ready-made assets for Google Business and paid ads
 
 ---
 
@@ -90,7 +92,7 @@ We built our own publishing software to run social for the stores we work with. 
 
 ## 8. One partner for your whole tech stack
 
-**Outsourced Chief Technology Officer (CTO) and Marketing Director, vendor management, and lead and CRM fixes**
+**Outsourced Chief Technology Officer (CTO) and Marketing Director, vendor management, lead and CRM fixes, and AI systems**
 
 You don't need more vendors. You need fewer, smarter partners. We act as your outsourced Chief Technology Officer and Marketing Director, become your single point of contact for every vendor, and fix the cracks where leads get lost.
 
@@ -98,6 +100,7 @@ You don't need more vendors. You need fewer, smarter partners. We act as your ou
 - Customer relationship management (CRM) and lead-flow fixes, so no lead slips through
 - A custom weekly report for your general manager: traffic, inventory, leads, response times and close rates on one page
 - A sit-down every week to turn that report into what to do next
+- AI systems and custom apps we build ourselves, from publishing and reporting tools to lead handling and website chat
 
 ---
 
@@ -119,7 +122,19 @@ We've spent two decades in hands-on dealership marketing, sales and systems work
 
 We use AI where it helps, then tailor it with deep dealer know-how, so it isn't average AI anymore. We call that Super Intelligence.
 
-We're local, too. We're based in Baton Rouge, Louisiana, and we serve dealerships across the South with people who actually show up on your lot.
+We're fast, too. Creative is made in-house, so when a sales event or incentive changes, we can turn it around in hours, not weeks.
+
+And we're local. We're based in Baton Rouge, Louisiana, and we serve dealerships across the South with people who actually show up on your lot.
+
+---
+
+## 10b. Beyond dealerships
+
+**Small business startups:** Website and brand consulting, go-to-market strategy and systems setup, so you start with the right foundation.
+
+**Restaurants:** Website builds, menu content, photography and full social media management.
+
+**Own Your Web:** Need a modern site you own? [Visit Own Your Web](https://ownyourweb.ai)
 
 ---
 
