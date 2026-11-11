@@ -76,23 +76,6 @@
     });
   });
 
-  var quote = document.querySelector(".ps-pullquote");
-  if (quote) {
-    if (reduce || !("IntersectionObserver" in window)) {
-      quote.classList.add("is-in");
-    } else {
-      var quoteWatch = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            quote.classList.add("is-in");
-            quoteWatch.disconnect();
-          }
-        });
-      }, { threshold: 0.4 });
-      quoteWatch.observe(quote);
-    }
-  }
-
   function icon(playing) {
     if (playing) {
       return '<svg viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12"/><rect x="8.5" y="1" width="3.5" height="12"/></svg>';
