@@ -236,6 +236,14 @@
     var engine = document.querySelector("[data-media-slot='engine']");
     var content = document.querySelector("[data-media-slot='content']");
     if (engine) {
+      data.filter(function (item) { return item.role === "band"; }).forEach(function (item) {
+        var band = document.createElement("figure");
+        band.className = "ps-media-band";
+        var video = makeVideo(item);
+        videos.push(video);
+        band.appendChild(video);
+        engine.appendChild(band);
+      });
       var stills = document.createElement("div");
       stills.className = "ps-stills";
       data.filter(function (item) { return item.role === "still"; }).forEach(function (item) {
