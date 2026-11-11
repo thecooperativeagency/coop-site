@@ -64,6 +64,23 @@
     return el;
   }
 
+  function syncSwipe(slot, count) {
+    var swipe = count > 2 && !slot.hidden;
+    slot.classList.toggle("ts-slot--swipe", swipe);
+    var hint = slot.previousElementSibling;
+    var isHint = hint && hint.classList && hint.classList.contains("ts-swipe-hint");
+    if (swipe) {
+      if (!isHint) {
+        hint = document.createElement("p");
+        hint.className = "ts-swipe-hint";
+        hint.textContent = "Swipe";
+        slot.parentNode.insertBefore(hint, slot);
+      }
+    } else if (isHint) {
+      hint.remove();
+    }
+  }
+
   function renderSheets() {
     var shown = visibleItems();
     slots.forEach(function (slot) {
@@ -71,11 +88,13 @@
       slot.textContent = "";
       if (filter !== "all" && filter !== "motive" && filter !== group) {
         slot.hidden = true;
+        syncSwipe(slot, 0);
         return;
       }
       var mine = shown.filter(function (item) { return item.group === group; });
       slot.hidden = mine.length === 0;
       mine.forEach(function (item) { slot.appendChild(card(item, items.indexOf(item))); });
+      syncSwipe(slot, mine.length);
     });
     if (filterBar) {
       Array.prototype.forEach.call(filterBar.querySelectorAll("button"), function (btn) {

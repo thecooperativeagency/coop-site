@@ -68,15 +68,5 @@
     "src": "./public/images/media/bh-bmw-drone-dealership.webp",
     "src_sm": "./public/images/media/bh-bmw-drone-dealership-800.webp",
     "alt": "Drone view of the Brian Harris BMW dealership and lot"
-  },
-  {
-    "type": "image",
-    "role": "still",
-    "store": "Brian Harris BMW",
-    "title": "Brian Harris BMW, August drone",
-    "aspect": "16:9",
-    "src": "./public/images/media/drone-august.webp",
-    "src_sm": "./public/images/media/drone-august-800.webp",
-    "alt": "Drone view of Brian Harris BMW from the August shoot"
   }
 ]
