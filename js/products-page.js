@@ -232,24 +232,31 @@
   }
 
   var videos = [];
+  function labeledFigure(item, node, className) {
+    var fig = document.createElement("figure");
+    fig.className = className;
+    var cap = document.createElement("figcaption");
+    cap.textContent = item.store + " · " + item.title;
+    fig.appendChild(cap);
+    fig.appendChild(node);
+    return fig;
+  }
+
   function mountMedia(data) {
-    var engine = document.querySelector("[data-media-slot='engine']");
-    var content = document.querySelector("[data-media-slot='content']");
-    if (engine) {
+    var drone = document.querySelector("[data-media-slot='drone']");
+    var stillSlot = document.querySelector("[data-media-slot='stills']");
+    var reels = document.querySelector("[data-media-slot='reels']");
+    if (drone) {
       data.filter(function (item) { return item.role === "band"; }).forEach(function (item) {
-        var band = document.createElement("figure");
-        band.className = "ps-media-band";
         var video = makeVideo(item);
         videos.push(video);
-        band.appendChild(video);
-        engine.appendChild(band);
+        drone.appendChild(labeledFigure(item, video, "ps-drone"));
       });
+    }
+    if (stillSlot) {
       var stills = document.createElement("div");
       stills.className = "ps-stills";
       data.filter(function (item) { return item.role === "still"; }).forEach(function (item) {
-        var fig = document.createElement("figure");
-        fig.className = "ps-still";
-        fig.setAttribute("data-aspect", item.aspect || "16:9");
         var pic = document.createElement("picture");
         if (item.src_sm) {
           var source = document.createElement("source");
@@ -261,36 +268,32 @@
         img.src = item.src || "";
         img.alt = item.alt || "";
         pic.appendChild(img);
-        fig.appendChild(pic);
+        var fig = labeledFigure(item, pic, "ps-still");
+        fig.setAttribute("data-aspect", item.aspect || "16:9");
         stills.appendChild(fig);
       });
-      if (stills.childElementCount) engine.appendChild(stills);
+      if (stills.childElementCount) stillSlot.appendChild(stills);
     }
-    if (content) {
+    if (reels) {
       var row = document.createElement("div");
       row.className = "ps-phones";
       data.filter(function (item) { return item.role === "phone"; }).forEach(function (item) {
-        var fig = document.createElement("figure");
-        fig.className = "ps-phone";
         var video = makeVideo(item);
         videos.push(video);
-        fig.appendChild(video);
-        var cap = document.createElement("figcaption");
-        var caption = item.caption || "Published on Instagram";
+        var fig = labeledFigure(item, video, "ps-phone");
         if (item.ig_url) {
+          var cap = fig.querySelector("figcaption");
           var a = document.createElement("a");
           a.href = item.ig_url;
           a.target = "_blank";
           a.rel = "noopener";
-          a.textContent = caption;
+          a.textContent = cap.textContent;
+          cap.textContent = "";
           cap.appendChild(a);
-        } else {
-          cap.textContent = caption;
         }
-        fig.appendChild(cap);
         row.appendChild(fig);
       });
-      if (row.childElementCount) content.appendChild(row);
+      if (row.childElementCount) reels.appendChild(row);
     }
     if (!videos.length || !("IntersectionObserver" in window)) return;
     var io = new IntersectionObserver(function (entries) {
@@ -313,20 +316,33 @@
 
   /* Sticky bar */
   var bar = document.querySelector(".ps-bar");
-  var hero = document.querySelector("#ps-hero");
+  var heroCta = document.querySelector("#ps-hero-cta");
   var closeEl = document.querySelector("#ps-close");
-  if (!bar || !hero || !("IntersectionObserver" in window)) return;
-  var heroGone = false, closeOn = false, formOn = false;
+  if (!bar || !heroCta || !("IntersectionObserver" in window)) return;
+  var heroGone = false, closeOn = false, formOn = false, keyboardOn = false;
   function paint() {
     var narrow = window.matchMedia("(max-width: 900px)").matches;
-    var show = narrow && heroGone && !closeOn && !formOn;
+    var show = narrow && heroGone && !closeOn && !formOn && !keyboardOn;
     document.body.classList.toggle("ps-bar-on", show);
     bar.hidden = !show;
   }
   new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) { heroGone = !entry.isIntersecting; });
     paint();
-  }, { threshold: 0 }).observe(hero);
+  }, { threshold: 0 }).observe(heroCta);
+  document.addEventListener("focusin", function (event) {
+    if (event.target.closest && event.target.closest("form.js-contact")) { keyboardOn = true; paint(); }
+  });
+  document.addEventListener("focusout", function () {
+    keyboardOn = false; paint();
+  });
+  var send = bar.querySelector("[data-ps-focus]");
+  if (send) {
+    send.addEventListener("click", function () {
+      var input = document.querySelector("#ps-lead input[name='first']");
+      if (input) window.setTimeout(function () { input.focus(); }, 350);
+    });
+  }
   if (closeEl) {
     new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) { closeOn = entry.isIntersecting; });

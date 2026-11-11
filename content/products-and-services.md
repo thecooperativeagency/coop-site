@@ -6,7 +6,7 @@ Draft direction (relayed by Copper, Nov 11, 11:31 AM CT, as Lance's call): store
 
 **Nav label:** Products & Services
 **Title tag:** Dealer Marketing Products & Services | The Cooperative Agency
-**Meta description:** SEO, AI search, lifestyle newsletters, offer emails, on-lot content, social, custom AI and co-op consulting for car dealerships. One team, from Baton Rouge, Louisiana.
+**Meta description:** SEO, AI search, newsletters, offer emails, on-lot content, social and custom AI for car dealerships. We send real creators to your store.
 
 ---
 
@@ -110,7 +110,7 @@ You don't need more vendors. You need fewer, smarter partners. We act as your ou
 **Card 2: Vendor management.** We coordinate every vendor, cut the overlap and keep them accountable.
 **Card 3: Customer database and lead-flow fixes.** We find where leads slip through and fix your customer relationship management (CRM) setup and follow-up.
 **Card 4: A weekly report for your general manager.** Traffic, inventory, leads, response times and close rates on one page, refreshed every week.
-**Card 5: Custom AI systems and apps.** We take typical AI and tailor it with deep dealer knowledge, so it isn't average AI anymore. We call that Super Intelligence.
+**Card 5: Custom AI systems and apps.** Custom AI systems and apps, tuned with real dealer know-how.
 **Card 6: Your website, whatever it runs on.** We work on any platform, and Motive sites are our favorite. We know how to get the most out of every one.
 
 **Tear sheets:** AI shopping assistant answer (ai-assistant.png, caption "AI shopping assistant, answering from live inventory." It answers AI agents through a data feed, so never call it a chat on the dealer's site), Brian Harris BMW service-drive appraisal page (Motive), and the weekly GM report (gm-weekly-report.png, de-branded, sample figures, so caption it "Sample report")
