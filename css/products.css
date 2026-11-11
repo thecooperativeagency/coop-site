@@ -1,0 +1,236 @@
+/* Products & Services — page-only additions.
+   Everything else comes from css/site.css unchanged.
+   Built from site tokens: --display, --sans, --bg-soft, --gutter, --space-*, #cfcfcf rules, #0c0c0c media bg.
+   No italics. The live site loads an italic face and does not use it. */
+
+/* small caps eyebrow. Style note for the label under each service H2. */
+.svc-label {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555;
+  margin: 0;
+}
+.band .svc-label { color: rgba(255,255,255,.92); }
+
+/* hero actions: filled primary, outline secondary */
+.ps-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--space-2);
+}
+.page-hero .btn-pill {
+  color: #fff;
+  border-color: #fff;
+}
+.page-hero .btn-pill--fill {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+.page-hero .btn-pill--fill:hover { background: var(--bg-soft); }
+.btn-pill:focus-visible,
+.svc-points a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* left-aligned photo band, the mirror of .band__content.is-right */
+.band__content.is-left {
+  display: grid;
+  justify-items: start;
+  text-align: left;
+}
+.band__content.is-left .stack-sm,
+.band__content.is-left .stack {
+  max-width: 36rem;
+  width: min(36rem, 100%);
+}
+.band:has(.is-left) .band__shade {
+  background: linear-gradient(270deg, rgba(0,0,0,.12), rgba(0,0,0,.55));
+}
+
+/* ---------- service index rules kept from the add-on (not used on this draft) ---------- */
+.svc-index {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 clamp(1.25rem, 3vw, 2.5rem);
+  border-top: 1px solid #cfcfcf;
+}
+.svc-index__group {
+  padding-block: clamp(1.35rem, 2.6vw, 2rem);
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+}
+.svc-index__group .display-sm { font-size: clamp(1.5rem, 1.6vw + 0.6rem, 2.1rem); }
+.svc-index ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+.svc-index li a {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-block: 0.55rem;
+  border-bottom: 1px solid #cfcfcf;
+  text-decoration: none;
+  font-size: var(--body-size);
+}
+.svc-index li a::after { content: "↓"; opacity: .45; }
+.svc-index li a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- ruled rows (same rule as .faq-item) ---------- */
+.svc-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  border-top: 1px solid #cfcfcf;
+  min-width: 0;
+}
+.svc-points li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.3rem;
+  padding-block: clamp(0.9rem, 1.6vw, 1.2rem);
+  border-bottom: 1px solid #cfcfcf;
+  min-width: 0;
+}
+.svc-points h4 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.25rem, 1.2vw + 0.75rem, 1.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.svc-points p { margin: 0; color: #1a1a1a; }
+.ta-right .svc-points,
+.ta-center .svc-points,
+.brand-copy .svc-points { text-align: left; }
+.ta-center .svc-points {
+  width: min(40rem, 100%);
+  margin-inline: auto;
+}
+.band .svc-points { border-top-color: rgba(255,255,255,.4); }
+.band .svc-points li { border-bottom-color: rgba(255,255,255,.4); }
+.band .svc-points p,
+.band .svc-points h4 { color: #fff; }
+
+/* ---------- operations grid: 4 cards, two columns (final map) ---------- */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(1.25rem, 3vw, 2.5rem);
+  margin-top: var(--space-3);
+}
+.svc-card {
+  border-top: 1px solid #cfcfcf;
+  padding-block: clamp(1.35rem, 2.6vw, 2rem);
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  scroll-margin-top: 2rem;
+  min-width: 0;
+}
+.svc-card .num {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: #555;
+  margin: 0;
+}
+.svc-card .display-sm { font-size: clamp(1.4rem, 1.4vw + 0.6rem, 2rem); }
+.svc-card .body { color: #1a1a1a; }
+
+/* frame for screenshot-type media (same shadow as the home report image) */
+.ps-shot {
+  width: 100%;
+  box-shadow: 0 1.25rem 3rem rgba(0,0,0,.12);
+  background: #fff;
+}
+.ps-shot--ph {
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  border: 1px dashed #bdbdbd;
+  box-shadow: none;
+  background: var(--bg-soft);
+  color: #555;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* three quiet columns (why) */
+.ps-beyond {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 clamp(1.25rem, 3vw, 2.5rem);
+  margin-top: var(--space-3);
+}
+.ps-beyond > div {
+  border-top: 1px solid #000;
+  padding-top: var(--space-2);
+  display: grid;
+  gap: var(--space-1);
+  align-content: start;
+  min-width: 0;
+}
+
+/* ---------- SEO long-form: bottom third only, quiet ---------- */
+.seo-copy { border-top: 1px solid #cfcfcf; padding-top: var(--space-3); }
+.seo-copy__cols {
+  columns: 2 22rem;
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  margin-top: var(--space-2);
+}
+.seo-copy > h3 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.012em;
+  color: #333;
+  margin: 0;
+  max-width: 40rem;
+}
+.seo-copy p {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  letter-spacing: -0.012em;
+  color: #333;
+  margin: 0 0 0.8rem;
+  break-inside: avoid;
+}
+
+.ps-contact a { text-decoration: underline; text-underline-offset: 3px; }
+
+#svc-content .brand-copy .display-sm { max-width: 18ch; }
+
+[id^="svc-"],
+[id^="ps-"] { scroll-margin-top: 1.5rem; }
+
+@media (max-width: 1100px) {
+  .svc-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .svc-index,
+  .svc-grid,
+  .ps-beyond { grid-template-columns: 1fr; }
+  .ps-beyond > div + div { margin-top: var(--space-3); }
+  .band__content.is-left,
+  .band__content.is-right {
+    text-align: left;
+    justify-items: start;
+  }
+}

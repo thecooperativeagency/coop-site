@@ -11,6 +11,7 @@ Owned rebuild of The Cooperative Agency site. Canonical domain: **https://thecoo
 - `/` home
 - `/faq.html`
 - `/contact.html`
+- `/products-and-services.html` (canonical `/products-and-services`)
 - `/field-media.html` (kept in repo, unlinked in nav/footer until Lance approves a customer rewrite)
 
 ## Contact form
