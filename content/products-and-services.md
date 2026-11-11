@@ -16,7 +16,7 @@ Draft direction (relayed by Copper, Nov 11, 11:31 AM CT, as Lance's call): store
 
 **Sub-line:** Search, AI search, newsletters, offers, content, social and the systems behind them. We build it, run it and answer for it, so you deal with one partner instead of ten.
 
-**Platform line:** We work on any website platform, and we especially love Motive sites.
+**Platform line:** We work well with Motive, as well as many other website providers.
 
 **Button:** Chat with us
 
