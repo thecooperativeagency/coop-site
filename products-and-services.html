@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/site.css?v=sms1" />
-  <link rel="stylesheet" href="./css/products.css?v=12" />
+  <link rel="stylesheet" href="./css/products-v2.css?v=13" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,17 +32,14 @@
   }
   </script>
 </head>
-<body>
-  <!-- Page copy is content/products-and-services.md. This file mirrors that copy. -->
-  <section class="page-hero" id="ps-hero" aria-label="Products and services">
+<body class="ps-page">
+  <section class="page-hero" aria-label="Products and services">
     <div class="page-hero__media">
-      <img src="./public/images/products/aerial-hero.jpg" alt="Aerial view of a dealership lot" width="1300" height="844" fetchpriority="high" />
+      <img src="./public/images/products/aerial-hero.jpg" alt="" width="2000" height="1333" />
     </div>
     <div class="page-hero__shade"></div>
     <header class="site-header">
-      <a href="./" aria-label="The Cooperative Agency home">
-        <img class="logo-wordmark" src="./public/images/brand/logo-wordmark-white.png" alt="The Cooperative Agency" width="1598" height="795" />
-      </a>
+      <a href="./" aria-label="The Cooperative Agency, home"><img class="logo-wordmark" src="./public/images/brand/logo-wordmark-white.png" alt="The Cooperative Agency" width="1598" height="795" /></a>
       <nav class="nav nav--light" aria-label="Primary">
         <a href="./contact.html">Contact Us</a>
         <a href="./faq.html">FAQ</a>
@@ -50,270 +47,414 @@
         <a href="./products-and-services.html" aria-current="page">Products &amp; Services</a>
         <a href="./careers.html">Careers</a>
       </nav>
+      <button class="ps-nav-btn" type="button" aria-expanded="false" aria-controls="ps-menu" aria-label="Menu"><span></span><span></span><span></span></button>
     </header>
     <div class="page-hero__content">
       <h1 class="display">One team behind your store's marketing.</h1>
       <p class="body page-hero__lede">We send real creators to your store, then put that content to work across your site, search, email and social. One partner instead of ten.</p>
-      <p class="body">We work well with Motive, as well as many other website providers.</p>
-      <p class="ps-actions" id="ps-hero-cta">
-        <a class="btn-pill" href="/contact" data-coop-chat aria-haspopup="dialog">Chat with us</a>
-        <a class="ps-call" href="tel:+12252404570">or call (225) 240-4570</a>
+      <p class="ps-motive">We work well with Motive, as well as many other website providers.</p>
+      <p class="ps-actions">
+        <a class="btn-pill is-fill" href="/contact" data-coop-chat aria-haspopup="dialog">Chat with us</a>
+        <a class="btn-pill" href="#ps-close" data-open-form>Send info</a>
+        <a class="btn-pill" href="tel:+12252404570">Call (225) 240-4570</a>
       </p>
     </div>
   </section>
-  <section class="section section--loose" id="svc-search" aria-labelledby="svc-search-title">
+
+  <div id="ps-menu" class="ps-menu" hidden>
+    <a class="ps-menu__logo" href="./" aria-label="The Cooperative Agency, home"><img src="./public/images/brand/logo-wordmark-white.png" alt="" width="1598" height="795" /></a>
+    <button class="ps-menu__close" type="button" aria-label="Close">×</button>
+    <nav aria-label="Primary">
+      <a href="./contact.html">Contact Us</a>
+      <a href="./faq.html">FAQ</a>
+      <a href="./">Home</a>
+      <a href="./products-and-services.html" aria-current="page">Products &amp; Services</a>
+      <a href="./careers.html">Careers</a>
+    </nav>
+    <a class="btn-pill" href="/contact" data-coop-chat aria-haspopup="dialog">Chat with us</a>
+  </div>
+
+  <section class="ps-sec ps-sec--bg" id="ps-search" aria-labelledby="ps-search-title">
     <div class="inner">
-      <h2 class="display-md" id="svc-search-title">Get found on Google and in AI search</h2>
-      <p class="svc-label">SEO and AI search</p>
-      <p class="body mw-prose">We build the pages shoppers and AI answers look for: buyer's guides, model launches, service and specials, written so ChatGPT and Google's AI answers can read your site and point to your store.</p>
-      <ul class="svc-points">
-        <li><p>SEO for your inventory, service, specials and other key pages</p></li>
-        <li><p>AI search optimization, so ChatGPT and Google's AI answers can read your site and recommend your store</p></li>
-        <li><p>AI readiness: we get your store ready for shoppers who use AI, including an AI shopping assistant we built and tailor with real dealer know-how</p></li>
+      <p class="ps-eyebrow">01</p>
+      <h2 class="display-md" id="ps-search-title">Get found in search</h2>
+      <p class="body ps-lede">SEO, AIO, GEO. Search has turned into alphabet soup. Here's what all those letters come down to: we build your site so AI can not only find it, but actually use it. Buyer's guides, model launches, service and specials pages, built so search engines and AI tools can read them and point shoppers to your store. Your site becomes a beautiful resource for people and AI alike. And an AI shopping assistant on your site helps shoppers who arrive from search and AI find the right car and take the next step.</p>
+      <ul class="ps-points">
+        <li>SEO for your inventory, service, specials and other key pages</li>
+        <li>AI search optimization, so AI tools can read your site, use it and recommend your store</li>
       </ul>
-      <figure class="ps-example">
-        <figcaption>Brian Harris BMW · Buyer's guide: lease, finance or buy</figcaption>
-        <a href="https://www.brianharrisbmw.com/bmw-buyers-guide" target="_blank" rel="noopener"><img src="./public/images/tearsheets/get-found_brian-harris-bmw_buyers-guide-thumb.webp" alt="Brian Harris BMW buyer's guide page." width="800" height="500" /></a>
-      </figure>
-    </div>
-  </section>
-  <section class="section section--loose" id="svc-newsletters" aria-labelledby="svc-newsletters-title">
-    <div class="inner">
-      <h2 class="display-md" id="svc-newsletters-title">Newsletters and offers that live on your site</h2>
-      <p class="body mw-prose">Every newsletter and offer email gets its own page on your website, so customers can click through, Google can find it and your sales team has one link to text.</p>
-      <ul class="svc-points">
-        <li><p>Lifestyle newsletters and monthly offer emails</p></li>
-        <li><p>A matching page on your site for every send</p></li>
-      </ul>
-      <figure class="ps-example">
-        <figcaption>Brian Harris BMW · November email → the November specials page on the site</figcaption>
-        <picture>
-          <source media="(max-width: 900px)" srcset="./public/images/content-engine/email-to-page-mobile.webp?v=3" type="image/webp" />
-          <img src="./public/images/content-engine/email-to-page.webp?v=3" alt="The Brian Harris BMW November email on a phone, and the November specials page in a browser at brianharrisbmw.com/new-bmw-specials2." width="1154" height="1438" />
-        </picture>
-      </figure>
-      <div class="ps-examples">
-        <figure class="ps-example">
-          <figcaption>Audi Baton Rouge · Service specials</figcaption>
-          <a href="https://audibatonrouge.com/service-specials" target="_blank" rel="noopener"><img src="./public/images/tearsheets/newsletters-offers_audi-baton-rouge_service-specials-thumb.webp" alt="Audi Baton Rouge service specials page." width="800" height="500" /></a>
-        </figure>
-        <figure class="ps-example">
-          <figcaption>Audi Baton Rouge · Loyalty page</figcaption>
-          <a href="https://audibatonrouge.com/audi-baton-rouge-loyalty-credit" target="_blank" rel="noopener"><img src="./public/images/tearsheets/co-op_audi-baton-rouge_loyalty-credit-thumb.webp" alt="Audi Baton Rouge loyalty page." width="800" height="500" /></a>
-        </figure>
-      </div>
-      <figure class="ps-pullquote">
-        <blockquote>
-          <span class="ps-pullquote__mark" aria-hidden="true">"</span>
-          <span class="ps-pullquote__rule" aria-hidden="true"></span>
-          <p>A good email gets a week of attention. The page keeps selling after that.</p>
-        </blockquote>
-      </figure>
-    </div>
-  </section>
-  <section class="section section--loose" id="ps-engine" aria-labelledby="ps-engine-title">
-    <div class="inner">
-      <h2 class="display-md" id="ps-engine-title">Shot at your store. Used everywhere.</h2>
-      <p class="body mw-prose">Too many dealer sites run on the same factory photos. We send real photographers and videographers to your store. One shoot becomes your feature pages, specials, social posts and emails, so every channel looks like your store, not a factory brochure.</p>
-      <picture class="ps-flow-strip">
-        <source media="(max-width: 900px)" srcset="./public/images/content-engine/flow-strip-mobile.webp" />
-        <img src="./public/images/content-engine/flow-strip.webp" alt="One shoot feeds every channel: your lot, feature pages, specials, social, and email and newsletters." width="2400" height="600" />
-      </picture>
-      <p class="ps-label">From the shoot to social</p>
-      <div class="ps-oneshoot">
-        <figure class="ps-example">
-          <figcaption>On the shoot</figcaption>
-          <img src="./public/images/content-engine/q5-original-shot.jpg" alt="A gray Audi Q5, the whole car, photographed in front of a house." width="776" height="652" />
-        </figure>
-        <figure class="ps-example">
-          <figcaption>On social</figcaption>
-          <img class="ps-vertical" src="./public/images/content-engine/post-q5-country-club.webp?v=4" alt="A black Audi Q5, the whole car, in a vertical social post at a country club." width="1000" height="1250" />
-        </figure>
-      </div>
-      <figure class="ps-example">
-        <figcaption>BMW of Jackson · Homepage hero video (Motive)</figcaption>
-        <a href="https://bmwofjackson.net/" target="_blank" rel="noopener">
-          <img src="./public/images/content-engine/bmwj-homepage.png?v=4" alt="BMW of Jackson homepage, with a lot video in the hero." width="1440" height="718" />
-        </a>
-      </figure>
-      <figure class="ps-pullquote ps-pullquote--center">
-        <blockquote>
-          <span class="ps-pullquote__mark" aria-hidden="true">"</span>
-          <span class="ps-pullquote__rule" aria-hidden="true"></span>
-          <p>One shoot feeds every channel.</p>
-        </blockquote>
-      </figure>
-    </div>
-  </section>
-  <section class="section section--brand" id="svc-content" aria-labelledby="svc-content-title">
-    <div class="inner">
-      <div class="stack-lg">
-        <h2 class="display-md" id="svc-content-title">Content and social that look like your store</h2>
-        <p class="svc-label">Photo, video, graphics and social</p>
-        <p class="body mw-prose">Real lot, real staff, real inventory, drone included. Your content is shot at your store. We plan your social by department, time it to your promotions and review every post before it goes live.</p>
-        <ul class="svc-points">
-          <li><p>On-lot photo and video shoots: reels, walkarounds, short videos and drone footage</p></li>
-          <li><p>Graphics that meet your manufacturer's brand rules, plus website creative</p></li>
-          <li><p>Ready-made assets for Google Business and paid ads</p></li>
-          <li><p>Social media management on our own publishing system, planned by department and timed to your promotions</p></li>
-        </ul>
-        <div data-media-slot="drone"></div>
-        <div data-media-slot="stills"></div>
-        <p class="ps-label">Reels</p>
-        <div data-media-slot="reels"></div>
-        <p class="ps-label">Published posts</p>
-        <div class="ps-posts">
-          <figure class="ps-example">
-            <figcaption>Harris Porsche · 911 Carrera S in the showroom</figcaption>
-            <img class="ps-vertical" src="./public/images/content-engine/post-911-showroom.webp?v=4" alt="A blue Porsche 911 Carrera S, the whole car, on the showroom floor." width="1000" height="1250" />
+      <div class="ps-content">
+        <div class="ps-grid">
+          <figure class="ps-ex ps-ar-1610">
+            <figcaption class="ps-cap">
+              <span class="ps-cap__label">Buyer's guide: lease, finance or buy</span>
+              <span class="ps-cap__store">Brian Harris BMW</span>
+            </figcaption>
+            <div class="ps-ex__frame">
+              <a href="https://www.brianharrisbmw.com/bmw-buyers-guide" target="_blank" rel="noopener">
+                <img src="./public/images/tearsheets/get-found_brian-harris-bmw_buyers-guide-thumb.webp" alt="Brian Harris BMW buyer's guide: lease, finance or buy." width="1600" height="1000" />
+              </a>
+            </div>
           </figure>
         </div>
       </div>
+      <p class="ps-cta"><a class="link-cta" href="/contact" data-coop-chat aria-haspopup="dialog">Ask what your store's pages are missing</a></p>
     </div>
   </section>
-  <section class="section section--loose" id="svc-spend" aria-labelledby="svc-spend-title">
+
+  <section class="ps-sec ps-sec--soft" id="ps-newsletters" aria-labelledby="ps-newsletters-title">
     <div class="inner">
-      <h2 class="display-sm" id="svc-spend-title">Your co-op dollars can cover most of this.</h2>
-      <p class="body mw-prose">Our services are built to qualify for manufacturer co-op. Right now we can claim our work through BMW&rsquo;s co-op program, and BMW pays up to 75 percent. We&rsquo;re working to add more brands.</p>
-      <p class="ps-inline-cta"><a class="link-cta-sm" href="/contact" data-coop-chat aria-haspopup="dialog">Ask how co-op works for your store</a></p>
-    </div>
-  </section>
-  <section class="section section--loose" id="svc-operations" aria-labelledby="svc-operations-title">
-    <div class="inner">
-      <h2 class="display-md" id="svc-operations-title">Your outsourced tech and marketing lead</h2>
-      <p class="svc-label">Outsourced CTO and marketing director</p>
-      <p class="body mw-prose">One lead who owns your marketing and sales tech, manages your vendors and fixes the places leads get lost.</p>
-      <div class="svc-grid svc-grid--4">
-        <article class="svc-card">
-          <p class="num">01</p>
-          <h3 class="display-sm">Your CTO, marketing director and vendor manager</h3>
-          <p class="body">One experienced lead for the marketing and sales stack, who coordinates every vendor and keeps them accountable.</p>
-        </article>
-        <article class="svc-card">
-          <p class="num">02</p>
-          <h3 class="display-sm">Customer database and lead-flow fixes</h3>
-          <p class="body">We find where leads slip through and fix your customer relationship management (CRM) setup and follow-up.</p>
-        </article>
-        <article class="svc-card">
-          <p class="num">03</p>
-          <h3 class="display-sm">A weekly report for your general manager</h3>
-          <p class="body">Traffic, inventory, leads, response times and close rates on one page. The example below is a sample, not a named store's live report.</p>
-          <figure class="ps-example">
-            <figcaption>Sample weekly GM report</figcaption>
-            <img src="./public/images/tearsheets/tech-lead_your-store_weekly-report-thumb.webp" alt="A de-branded sample weekly report for a general manager." width="800" height="500" />
-          </figure>
-        </article>
-        <article class="svc-card">
-          <p class="num">04</p>
-          <h3 class="display-sm">Custom AI systems and apps</h3>
-          <p class="body">We shape the tools around how your store sells and services cars, so the answers sound like your desk.</p>
-          <figure class="ps-example">
-            <figcaption>Audi Baton Rouge · AI shopping assistant</figcaption>
-            <img src="./public/images/tearsheets/tech-lead_audi-baton-rouge_ai-assistant-thumb.webp" alt="An AI shopping assistant built for Audi Baton Rouge." width="800" height="500" />
-          </figure>
-        </article>
+      <p class="ps-eyebrow">02</p>
+      <h2 class="display-md" id="ps-newsletters-title">Newsletters and offers that live on your site</h2>
+      <p class="body ps-lede">Our lifestyle newsletters go out by email and feature your specials, but they give people a reason to read that isn't just buying a car: where to eat and drink around town, the coffee worth the drive, the music coming up this month. Offers-only emails really matter only to people in the upgrade cycle who are actively shopping. The lifestyle newsletter keeps everyone else reading, so your store stays top of mind until they're ready. And every send gets its own page on your website, so customers can click through, Google can find it and your sales team has one link to text.</p>
+      <ul class="ps-points">
+        <li>Lifestyle newsletters by email: local food and drink, coffee, music and events, with your specials inside</li>
+        <li>Monthly offer emails for shoppers in the upgrade cycle</li>
+        <li>A matching page on your site for every send</li>
+      </ul>
+      <div class="ps-content">
+        <div class="ps-group-wrap">
+          <p class="ps-group">Lifestyle sections from real issues</p>
+          <div class="ps-row ps-row--clips">
+            <figure class="ps-ex ps-ar-45">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">S Line News 02 · Food: The Hallelujah Crab at Juban's</span>
+                <span class="ps-cap__store">Audi Baton Rouge</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <img src="./public/images/ps-v2/clip-food_jubans-4x5.webp" alt="Audi Baton Rouge S Line News food section: The Hallelujah Crab at Juban's." width="800" height="1000" />
+              </div>
+            </figure>
+            <figure class="ps-ex ps-ar-45">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">S Line News 02 · Coffee: The Chocolate Cappuccino at Highland Coffees</span>
+                <span class="ps-cap__store">Audi Baton Rouge</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <img src="./public/images/ps-v2/clip-coffee_highland-4x5.webp" alt="Audi Baton Rouge S Line News coffee section: The Chocolate Cappuccino at Highland Coffees." width="800" height="1000" />
+              </div>
+            </figure>
+            <figure class="ps-ex ps-ar-45">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">S Line News 02 · Music: Alfredo Rodríguez at the Manship</span>
+                <span class="ps-cap__store">Audi Baton Rouge</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <img src="./public/images/ps-v2/clip-music_manship-4x5.webp" alt="Audi Baton Rouge S Line News music section: Alfredo Rodríguez at the Manship." width="800" height="1000" />
+              </div>
+            </figure>
+          </div>
+        </div>
+        <div class="ps-group-wrap">
+          <p class="ps-group">From the inbox to the site</p>
+          <div class="ps-wide ps-wide--email">
+            <figure class="ps-ex ps-ex--natural">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">November email → brianharrisbmw.com/new-bmw-specials2</span>
+                <span class="ps-cap__store">Brian Harris BMW</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <picture>
+                  <source media="(max-width: 900px)" srcset="./public/images/content-engine/email-to-page-mobile.webp" />
+                  <img src="./public/images/content-engine/email-to-page.webp" alt="Brian Harris BMW November email beside the matching page on the site." width="1154" height="1438" />
+                </picture>
+              </div>
+            </figure>
+          </div>
+        </div>
+        <div class="ps-group-wrap">
+          <p class="ps-group">More pages built from sends</p>
+          <div class="ps-grid">
+            <figure class="ps-ex ps-ar-1610">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">Service specials</span>
+                <span class="ps-cap__store">Audi Baton Rouge</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <a href="https://audibatonrouge.com/service-specials" target="_blank" rel="noopener">
+                  <img src="./public/images/tearsheets/newsletters-offers_audi-baton-rouge_service-specials-thumb.webp" alt="Audi Baton Rouge service specials page." width="1600" height="1000" />
+                </a>
+              </div>
+            </figure>
+            <figure class="ps-ex ps-ar-1610">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">Loyalty page</span>
+                <span class="ps-cap__store">Audi Baton Rouge</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <a href="https://audibatonrouge.com/audi-baton-rouge-loyalty-credit" target="_blank" rel="noopener">
+                  <img src="./public/images/tearsheets/co-op_audi-baton-rouge_loyalty-credit-thumb.webp" alt="Audi Baton Rouge loyalty page." width="1600" height="1000" />
+                </a>
+              </div>
+            </figure>
+          </div>
+        </div>
       </div>
+      <p class="ps-cta"><a class="link-cta" href="/contact" data-coop-chat aria-haspopup="dialog">Ask how your next send becomes a page</a></p>
+    </div>
+  </section>
+
+  <section class="ps-sec ps-sec--bg" id="ps-content" aria-labelledby="ps-content-title">
+    <div class="inner">
+      <p class="ps-eyebrow">03</p>
+      <h2 class="display-md" id="ps-content-title">Localized content and creative</h2>
+      <p class="body ps-lede">We come on site and into your area to shoot content that looks and feels familiar to your local customers: your lot, your staff, your inventory and the places around you. Then we put it to work in every channel we can: emails, newsletters, feature pages, specials pages, social media and your Google Business Profile.</p>
+      <ul class="ps-points">
+        <li>On-lot photo and video: reels, walkarounds, short videos and drone</li>
+        <li>Graphics that meet your manufacturer's brand rules, plus website creative</li>
+        <li>Ready-made assets for Google Business and paid ads</li>
+        <li>Social planned by department, timed to your promotions, every post reviewed before it goes live</li>
+      </ul>
+      <div class="ps-content">
+        <div class="ps-group-wrap">
+          <p class="ps-group">From the shoot to social</p>
+          <div class="ps-row ps-row--shoot">
+            <figure class="ps-ex ps-ar-43">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">On the shoot</span>
+                <span class="ps-cap__store">Audi Baton Rouge</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <img src="./public/images/ps-v2/q5-original-shot-4x3.jpg" alt="Audi Baton Rouge, on the shoot." width="776" height="582" />
+              </div>
+            </figure>
+            <figure class="ps-ex ps-ar-45">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">On social</span>
+                <span class="ps-cap__store">Audi Baton Rouge</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <img src="./public/images/content-engine/post-q5-country-club.webp" alt="Audi Baton Rouge, on social." width="800" height="1000" />
+              </div>
+            </figure>
+          </div>
+        </div>
+        <div class="ps-group-wrap">
+          <p class="ps-group">On social</p>
+          <div class="ps-row ps-row--social">
+            <figure class="ps-ex ps-ar-45">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">911 Carrera S in the showroom</span>
+                <span class="ps-cap__store">Harris Porsche</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <img src="./public/images/content-engine/post-911-showroom.webp" alt="Harris Porsche, 911 Carrera S in the showroom." width="800" height="1000" />
+              </div>
+            </figure>
+            <figure class="ps-ex ps-ar-916">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">The first ever Audi Q9</span>
+                <span class="ps-cap__store">Audi Baton Rouge</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <video muted loop playsinline preload="metadata" poster="./public/videos/abr-q9-reel-poster.jpg">
+                  <source src="./public/videos/abr-q9-reel.webm" type="video/webm" />
+                  <source src="./public/videos/abr-q9-reel.mp4" type="video/mp4" />
+                </video>
+                <button class="ps-play" type="button" aria-label="Play"></button>
+              </div>
+            </figure>
+            <figure class="ps-ex ps-ar-916">
+              <figcaption class="ps-cap">
+                <span class="ps-cap__label">Meet Seth LeBlanc</span>
+                <span class="ps-cap__store">Harris Porsche</span>
+              </figcaption>
+              <div class="ps-ex__frame">
+                <video muted loop playsinline preload="metadata" poster="./public/videos/harris-porsche-seth-intro-poster.jpg">
+                  <source src="./public/videos/harris-porsche-seth-intro.webm" type="video/webm" />
+                  <source src="./public/videos/harris-porsche-seth-intro.mp4" type="video/mp4" />
+                </video>
+                <button class="ps-play" type="button" aria-label="Play"></button>
+              </div>
+            </figure>
+          </div>
+        </div>
+        <div class="ps-group-wrap">
+          <p class="ps-group">From the air</p>
+          <div class="ps-air">
+            <div class="ps-wide">
+              <figure class="ps-ex ps-ar-169">
+                <figcaption class="ps-cap">
+                  <span class="ps-cap__label">Drone, on the lot</span>
+                  <span class="ps-cap__store">BMW of Jackson</span>
+                </figcaption>
+                <div class="ps-ex__frame">
+                  <video muted loop playsinline preload="metadata" poster="./public/videos/bmw-of-jackson-lot-poster.jpg">
+                    <source src="./public/videos/bmw-of-jackson-lot.webm" type="video/webm" />
+                    <source src="./public/videos/bmw-of-jackson-lot.mp4" type="video/mp4" />
+                  </video>
+                  <button class="ps-play" type="button" aria-label="Play"></button>
+                </div>
+              </figure>
+            </div>
+            <div class="ps-row ps-row--air">
+              <figure class="ps-ex ps-ar-169">
+                <figcaption class="ps-cap">
+                  <span class="ps-cap__label">New-car building</span>
+                  <span class="ps-cap__store">Audi Baton Rouge</span>
+                </figcaption>
+                <div class="ps-ex__frame">
+                  <img src="./public/images/ps-v2/abr-drone-newcar-building-16x9.webp" alt="Audi Baton Rouge new-car building, from the air." width="1280" height="720" />
+                </div>
+              </figure>
+              <figure class="ps-ex ps-ar-169">
+                <figcaption class="ps-cap">
+                  <span class="ps-cap__label">Dealership</span>
+                  <span class="ps-cap__store">Brian Harris BMW</span>
+                </figcaption>
+                <div class="ps-ex__frame">
+                  <img src="./public/images/media/bh-bmw-drone-dealership.webp" alt="Brian Harris BMW dealership, from the air." width="1280" height="720" />
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="ps-cta"><a class="link-cta" href="/contact" data-coop-chat aria-haspopup="dialog">Ask when we can shoot at your store</a></p>
+    </div>
+  </section>
+
+  <section class="ps-sec ps-sec--soft" id="ps-strategy" aria-labelledby="ps-strategy-title">
+    <div class="inner">
+      <p class="ps-eyebrow">04</p>
+      <h2 class="display-md" id="ps-strategy-title">Your outsourced marketing director</h2>
+      <p class="body ps-lede">We work for you, not for your vendors. Imagine a marketing director who can also shoot your local content, run your newsletters and get you found in search, and who is also your shield against predatory vendors.</p>
+      <ul class="ps-points">
+        <li>Manages your vendors and holds them accountable, so you stop paying for what doesn't work</li>
+        <li>Finds where leads slip through and fixes your CRM and follow-up</li>
+        <li>A one-page weekly report for your general manager</li>
+        <li>Custom AI tools shaped around how your store sells and services cars</li>
+      </ul>
+      <div class="ps-content">
+        <div class="ps-grid">
+          <figure class="ps-ex ps-ar-1610">
+            <figcaption class="ps-cap">
+              <span class="ps-cap__label">Sample weekly GM report</span>
+              <span class="ps-cap__store"></span>
+            </figcaption>
+            <div class="ps-ex__frame">
+              <img src="./public/images/tearsheets/tech-lead_your-store_weekly-report-thumb.webp" alt="Sample weekly GM report." width="1600" height="1000" />
+            </div>
+          </figure>
+          <figure class="ps-ex ps-ar-1610">
+            <figcaption class="ps-cap">
+              <span class="ps-cap__label">AI shopping assistant</span>
+              <span class="ps-cap__store">Audi Baton Rouge</span>
+            </figcaption>
+            <div class="ps-ex__frame">
+              <img src="./public/images/tearsheets/tech-lead_audi-baton-rouge_ai-assistant-thumb.webp" alt="Audi Baton Rouge AI shopping assistant." width="1600" height="1000" />
+            </div>
+          </figure>
+        </div>
+      </div>
+      <p class="ps-cta"><a class="link-cta" href="/contact" data-coop-chat aria-haspopup="dialog">Ask where your leads are slipping</a></p>
+    </div>
+  </section>
+
+  <section class="ps-sec ps-sec--slim ps-sec--white" id="ps-coop" aria-labelledby="ps-coop-title">
+    <div class="inner">
+      <p class="ps-eyebrow">05</p>
+      <h2 class="display-sm" id="ps-coop-title">Your co-op dollars can cover most of this.</h2>
+      <p class="body ps-lede">Our services are built to qualify for manufacturer co-op. Right now we can claim our work through BMW&rsquo;s co-op program, and BMW pays up to 75 percent. We&rsquo;re working to add more brands.</p>
+      <p class="ps-cta"><a class="link-cta" href="/contact" data-coop-chat aria-haspopup="dialog">Ask how co-op works for your store</a></p>
+    </div>
+  </section>
+
+  <section class="ps-sec ps-sec--bg" id="ps-why" aria-labelledby="ps-why-title">
+    <div class="inner">
+      <p class="ps-eyebrow">06</p>
+      <h2 class="display-md" id="ps-why-title">Why The Cooperative</h2>
+      <p class="body ps-lede">Two decades selling cars, running campaigns and untangling vendor messes. Creative made in-house, so when an incentive changes, your creative changes fast. And we send real creators to your store, so your content looks like your store.</p>
       <figure class="ps-pullquote">
-        <blockquote>
-          <span class="ps-pullquote__mark" aria-hidden="true">"</span>
-          <span class="ps-pullquote__rule" aria-hidden="true"></span>
-          <p>You don't need more vendors. You need fewer, smarter partners.</p>
-        </blockquote>
+        <p><span class="ps-pullquote__mark" aria-hidden="true">&ldquo;</span><span>We build what moves metal, not what looks good in a deck.</span></p>
       </figure>
     </div>
   </section>
-  <section class="section section--loose" id="ps-why">
+
+  <section class="ps-sec ps-sec--soft" id="ps-close" aria-labelledby="ps-close-title">
     <div class="inner">
-      <h2 class="display-md">Why The Cooperative</h2>
-      <p class="body mw-prose">We've spent two decades in hands-on dealership marketing, sales and systems work. We've sold cars, run campaigns and untangled vendor messes.</p>
-      <p class="body mw-prose">We're fast, too. Creative is made in-house, so when a sales event or incentive changes, we can turn it around in hours, not weeks.</p>
-      <p class="body mw-prose">And we come to you. We send real creators to your store, so your content looks like your store, not a stock library.</p>
-      <figure class="ps-pullquote">
-        <blockquote>
-          <span class="ps-pullquote__mark" aria-hidden="true">"</span>
-          <span class="ps-pullquote__rule" aria-hidden="true"></span>
-          <p>We build what moves metal, not what looks good in a deck.</p>
-        </blockquote>
-      </figure>
-    </div>
-  </section>
-  <section class="panel" id="ps-close">
-    <div class="inner">
-      <div class="stack-lg ta-center">
-        <h2 class="display" style="max-width:14ch;margin-inline:auto">Let's see what this does for your store.</h2>
-        <p class="body" style="max-width:520px;margin-inline:auto">Pick whatever suits your day, and we'll talk through your goals before anyone mentions a number.</p>
+      <p class="ps-eyebrow">07</p>
+      <h2 class="display-md" id="ps-close-title">Let's see what this does for your store.</h2>
+      <p class="body ps-lede">Pick whatever suits your day, and we'll talk through your goals before anyone mentions a number.</p>
+      <div class="ps-content">
         <div class="ps-doors">
-          <article class="ps-door ps-door--chat">
-            <p class="num">01</p>
+          <article class="ps-door">
+            <p class="ps-eyebrow">01</p>
             <h3 class="display-sm">Chat with us</h3>
             <p class="body">Ask anything about your store and get a real answer fast.</p>
-            <a class="btn-pill btn-pill--solid" href="/contact" data-coop-chat aria-haspopup="dialog">Chat now</a>
+            <a class="btn-pill is-fill" href="/contact" data-coop-chat aria-haspopup="dialog">Chat</a>
           </article>
-          <article class="ps-door ps-door--lead">
-            <p class="num">02</p>
+          <article class="ps-door">
+            <p class="ps-eyebrow">02</p>
             <h3 class="display-sm">Send your info</h3>
             <p class="body">Tell us about your store, and we'll come back with a plan.</p>
-            <a class="btn-pill" href="#ps-lead">Send your info</a>
+            <a class="btn-pill" href="#ps-lead" data-open-form>Send info</a>
           </article>
-          <article class="ps-door ps-door--call">
-            <p class="num">03</p>
-            <h3 class="display-sm">Call to set up a time</h3>
-            <p class="body">Call (225) 240-4570, and we'll set a phone appointment that fits your week.</p>
+          <article class="ps-door">
+            <p class="ps-eyebrow">03</p>
+            <h3 class="display-sm">Call (225) 240-4570</h3>
+            <p class="body">We'll set a phone appointment that fits your week.</p>
             <a class="btn-pill" href="tel:+12252404570">Call (225) 240-4570</a>
           </article>
         </div>
-        <form id="ps-lead" class="form js-contact" action="/api/contact" method="post" aria-label="Send your info">
-          <p class="form-thanks">Thanks — your message is in good hands, and a real person will read it. If it’s easier, you can also <a href="/contact" data-coop-chat aria-haspopup="dialog">chat with us</a> or call (225) 240-4570.</p>
-          <div class="form-fields">
-          <div class="row">
-            <label>First Name<input name="first" autocomplete="given-name" required /></label>
-            <label>Last Name<input name="last" autocomplete="family-name" required /></label>
-          </div>
-          <label>Dealership Name<input name="dealership" required /></label>
-          <label>Email<input name="email" type="email" autocomplete="email" required /></label>
-          <label>Mobile Phone<input name="phone" type="tel" autocomplete="tel" required /></label>
-          <div class="sms-consent">
-            <label class="check check--sms">
-              <input type="checkbox" name="sms_consent" value="yes" autocomplete="off" aria-describedby="sms-disclosure" />
-              <span>Yes, I agree to receive text messages from The Cooperative Agency about my inquiry, including replies, follow-ups, and scheduling, at the mobile number provided. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.</span>
-            </label>
-            <p class="sms-disclosure" id="sms-disclosure">By checking the SMS box, you agree to receive conversational and informational text messages from The Cooperative Agency, LLC about your inquiry, our services, and appointments. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help; contact <a href="mailto:lance@thecoopbrla.com">lance@thecoopbrla.com</a> or <a href="tel:+12252404570">(225) 240-4570</a>. Consent is not required to submit this form or buy anything. See our <a href="/privacy">Privacy Policy</a> (<a href="/privacy">thecoopbrla.com/privacy</a>) and <a href="/sms-terms">SMS Terms</a> (<a href="/sms-terms">thecoopbrla.com/sms-terms</a>).</p>
-            <input type="hidden" name="sms_consent_version" value="2026-10-26" />
-            <input type="hidden" name="sms_consent_text" value="Yes, I agree to receive text messages from The Cooperative Agency about my inquiry, including replies, follow-ups, and scheduling, at the mobile number provided. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.&#10;By checking the SMS box, you agree to receive conversational and informational text messages from The Cooperative Agency, LLC about your inquiry, our services, and appointments. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help; contact lance@thecoopbrla.com or (225) 240-4570. Consent is not required to submit this form or buy anything. See our Privacy Policy (thecoopbrla.com/privacy) and SMS Terms (thecoopbrla.com/sms-terms)." />
-          </div>
-          <label>Message<textarea name="message" rows="3" required placeholder="Your store, your goals, anything on your mind."></textarea></label>
-          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Leave blank<input name="company_url" tabindex="-1" autocomplete="off" /></label></div>
-          <p class="form-error" role="alert"></p>
-          <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-  <section class="section section--tight" id="ps-beyond">
-    <div class="inner">
-      <h2 class="display-sm">Not a dealership?</h2>
-      <p class="body mw-prose">We also consult for startups and build sites and run social for restaurants. <a class="link-cta-sm" href="https://ownyourweb.ai">Visit Own Your Web</a></p>
-    </div>
-  </section>
-  <section class="section" id="ps-seo">
-    <div class="inner">
-      <div class="seo-copy">
-        <h3>Dealer marketing, search, and the work that follows a shoot</h3>
-        <div class="seo-copy__cols">
-          <p>The Cooperative Agency helps car dealerships get found, stay top of mind and turn more leads into sales. The work covers search engine optimization for inventory, service and specials pages, and AI search optimization so ChatGPT and Google's AI answers can recommend a store.</p>
-          <p>Lifestyle newsletters are published on the dealer's website. Monthly specials, sales-event, and service offer emails each get a matching page. The same team shoots on-lot photography, video, reels and drone footage, runs social, builds custom AI tools, and consults on manufacturer co-op programs.</p>
+        <div class="ps-form-wrap">
+          <form id="ps-lead" class="form js-contact" action="/api/contact" method="post" aria-label="Send your info">
+            <p class="form-thanks">Thanks — your message is in good hands, and a real person will read it. If it’s easier, you can also <a href="/contact" data-coop-chat aria-haspopup="dialog">chat with us</a> or call (225) 240-4570.</p>
+            <div class="form-fields">
+              <div class="row">
+                <label>First Name<input name="first" autocomplete="given-name" required /></label>
+                <label>Last Name<input name="last" autocomplete="family-name" required /></label>
+              </div>
+              <label>Dealership Name<input name="dealership" required /></label>
+              <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+              <label>Mobile Phone<input name="phone" type="tel" autocomplete="tel" required /></label>
+              <div class="sms-consent">
+                <label class="check check--sms">
+                  <input type="checkbox" name="sms_consent" value="yes" autocomplete="off" aria-describedby="sms-disclosure" />
+                  <span>Yes, I agree to receive text messages from The Cooperative Agency about my inquiry, including replies, follow-ups, and scheduling, at the mobile number provided. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.</span>
+                </label>
+                <p class="sms-disclosure" id="sms-disclosure">By checking the SMS box, you agree to receive conversational and informational text messages from The Cooperative Agency, LLC about your inquiry, our services, and appointments. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help; contact <a href="mailto:lance@thecoopbrla.com">lance@thecoopbrla.com</a> or <a href="tel:+12252404570">(225) 240-4570</a>. Consent is not required to submit this form or buy anything. See our <a href="/privacy">Privacy Policy</a> (<a href="/privacy">thecoopbrla.com/privacy</a>) and <a href="/sms-terms">SMS Terms</a> (<a href="/sms-terms">thecoopbrla.com/sms-terms</a>).</p>
+                <input type="hidden" name="sms_consent_version" value="2026-10-26" />
+                <input type="hidden" name="sms_consent_text" value="Yes, I agree to receive text messages from The Cooperative Agency about my inquiry, including replies, follow-ups, and scheduling, at the mobile number provided. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.&#10;By checking the SMS box, you agree to receive conversational and informational text messages from The Cooperative Agency, LLC about your inquiry, our services, and appointments. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help; contact lance@thecoopbrla.com or (225) 240-4570. Consent is not required to submit this form or buy anything. See our Privacy Policy (thecoopbrla.com/privacy) and SMS Terms (thecoopbrla.com/sms-terms)." />
+              </div>
+              <label>Message<textarea name="message" rows="3" required placeholder="Your store, your goals, anything on your mind."></textarea></label>
+              <div class="ps-hp" aria-hidden="true"><label>Leave blank<input name="company_url" tabindex="-1" autocomplete="off" /></label></div>
+              <p class="form-error" role="alert"></p>
+              <button class="btn-pill is-fill" type="submit">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="ps-sec ps-sec--slim ps-sec--bg" id="ps-beyond" aria-labelledby="ps-beyond-title">
+    <div class="inner">
+      <p class="ps-eyebrow">08</p>
+      <h2 class="display-sm" id="ps-beyond-title">Not a dealership?</h2>
+      <p class="body ps-lede">We also consult for startups and build sites and run social for restaurants.</p>
+      <p class="ps-cta"><a class="link-cta" href="https://ownyourweb.ai">Visit Own Your Web</a></p>
+    </div>
+  </section>
+
+  <section class="ps-sec ps-sec--slim ps-sec--soft ps-seo" id="ps-seo" aria-labelledby="ps-seo-title">
+    <div class="inner">
+      <h2 class="ps-seo__h" id="ps-seo-title">What The Cooperative Agency does for car dealerships</h2>
+      <div class="ps-seo__cols">
+        <p>We help car dealerships get found, stay top of mind and turn more leads into sales, with SEO for inventory, service and specials pages and AI search optimization so AI tools can read, use and recommend a store's site.</p>
+        <p>Lifestyle newsletters and offer emails each get a matching page on the dealer's site. We also shoot on-lot photo, video, reels and drone, run social, build custom AI tools and help stores use manufacturer co-op.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="footer-band" aria-label="Contact footer">
     <div class="footer-band__media">
-      <img src="./public/images/X7-in-Willow-Grove-7.jpg" alt="BMW X7 on a tree-lined street" width="2500" height="1667" loading="lazy" />
+      <img src="./public/images/X7-in-Willow-Grove-7.jpg" alt="BMW X7 on a tree-lined street" width="2500" height="1667" />
     </div>
     <div class="footer-band__inner">
       <div class="footer-card">
         <div class="footer-card__left">
+          <img class="ps-footer-mark" src="./public/images/brand/logo-wordmark-black.png" alt="The Cooperative Agency" width="1598" height="795" />
           <p class="display-sm">We look forward to working with you!</p>
         </div>
         <div class="footer-card__right">
@@ -329,36 +470,21 @@
         </div>
       </div>
     </div>
-    <img class="footer-logo" src="./public/images/brand/logo-wordmark-white.png" alt="The Cooperative Agency" width="1598" height="795" />
   </section>
 
   <div class="site-footer-mini">
     <span>The Cooperative Agency · Baton Rouge, Louisiana</span>
     <span><a href="./">Home</a> · <a href="./faq.html">FAQ</a> · <a href="./contact.html">Contact</a> · <a href="./products-and-services.html" aria-current="page">Products &amp; Services</a> · <a href="./careers.html">Careers</a> · <a href="./privacy.html">Privacy</a> · <a href="./sms-terms.html">SMS Terms</a></span>
-    <p class="site-footer-mini__oyw">Own Your Web, our do-it-yourself guides for building your own site and AI tools. <a href="https://ownyourweb.ai">ownyourweb.ai</a></p>
   </div>
 
-  <nav class="ps-bar" aria-label="Quick actions" hidden>
+  <nav class="ps-bar" aria-label="Quick actions" aria-hidden="true" inert>
     <a href="/contact" data-coop-chat aria-haspopup="dialog">Chat</a>
-    <a href="#ps-lead" data-ps-focus="first">Send info</a>
+    <a href="#ps-close" data-open-form>Send info</a>
     <a href="tel:+12252404570">Call</a>
   </nav>
 
-  <div id="ts-lightbox" class="ts-lightbox" role="dialog" aria-modal="true" aria-label="Tear sheet" hidden>
-    <div class="ts-lightbox__frame">
-      <div class="ts-lightbox__bar">
-        <button type="button" data-ts-prev aria-label="Previous tear sheet">Prev</button>
-        <p data-ts-caption></p>
-        <button type="button" data-ts-close aria-label="Close tear sheet">Close</button>
-        <a data-ts-url hidden target="_blank" rel="noopener">Open live page</a>
-        <button type="button" data-ts-next aria-label="Next tear sheet">Next</button>
-      </div>
-      <img data-ts-full alt="" />
-    </div>
-  </div>
-
-  <script src="./js/contact-form.js?v=sms2"></script>
-  <script src="./js/products-page.js?v=8" defer></script>
-  <script src="./js/chat-widget.js?v=8316a52" defer></script>
+  <script src="./js/chat-widget.js?v=3"></script>
+  <script src="./js/contact-form.js?v=sms1"></script>
+  <script src="./js/products-v2.js?v=1"></script>
 </body>
 </html>
