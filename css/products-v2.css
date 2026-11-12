@@ -803,3 +803,184 @@ ol.ps-points {
     transition: none;
   }
 }
+/* C6 + path intro + mobile "you are here" marker.
+   Paste into css/products-v2.css. Tokens only; no inline styles. */
+
+/* ---- Path intro: four-stop index ------------------------------------- */
+
+.ps-path {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  max-width: var(--measure);
+  border-left: 1px solid #cfcfcf;
+}
+
+.ps-path li {
+  margin: 0;
+  padding: 0;
+}
+
+.ps-path li + li {
+  margin-top: var(--space-3);
+}
+
+.ps-path__stop {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: var(--space-2);
+  align-items: baseline;
+  padding: 0 0 0 var(--space-2);
+  color: inherit;
+  text-decoration: none;
+}
+
+.ps-path__stop:hover .ps-path__name,
+.ps-path__stop:focus-visible .ps-path__name {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.ps-path__num {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.ps-path__name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--display-sm);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #000;
+  text-wrap: pretty;
+}
+
+/* ---- C6: stage header ------------------------------------------------ */
+/* H2 and lede stay on the content edge, same as every other section.
+   The 1px rule hangs in the gutter. At 901px and up, the number hangs
+   there too; gaps shrink so the number never leaves --gutter. */
+
+.ps-stage {
+  position: relative;
+  max-width: var(--measure);
+  --stage-rule-gap: clamp(8px, 0.4 * (var(--gutter) - 2rem), 20px);
+}
+
+.ps-stage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * var(--stage-rule-gap));
+  width: 1px;
+  background: #cfcfcf;
+}
+
+.ps-stage .display-md {
+  max-width: 18ch;
+}
+
+@media (min-width: 901px) {
+  .ps-stage .ps-eyebrow {
+    position: absolute;
+    right: calc(100% + (2 * var(--stage-rule-gap)));
+    top: 8px;
+    margin: 0;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .ps-path li + li {
+    margin-top: var(--space-2);
+  }
+
+  .ps-path__stop {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    column-gap: 12px;
+    padding-left: 12px;
+  }
+
+  .ps-path__num {
+    font-size: 12px;
+  }
+
+  .ps-stage::before {
+    left: max(-12px, calc(-1 * var(--gutter) + 8px));
+  }
+}
+
+/* ---- Mobile "you are here" marker ------------------------------------ */
+/* Hidden without JS, hidden on desktop. Does not use the bottom edge
+   (that's .ps-bar). z-index 40: below .ps-bar (55) and .ps-menu (80). */
+
+.ps-here {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  html.js .ps-here:not([hidden]) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    margin: 0;
+    background: #e8e8e8;
+    border-bottom: 1px solid #cfcfcf;
+    padding: 12px var(--gutter);
+    padding-top: max(12px, env(safe-area-inset-top));
+  }
+
+  html.js .ps-here__idx {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  html.js .ps-here__name {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #000;
+  }
+
+  html.js body.ps-here-on {
+    scroll-padding-top: calc(44px + env(safe-area-inset-top));
+  }
+
+  #ps-path,
+  [data-ps-stage] {
+    scroll-margin-top: calc(44px + env(safe-area-inset-top));
+  }
+}
+
+@media (min-width: 901px) {
+  .ps-here {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-here {
+    transition: none;
+  }
+}

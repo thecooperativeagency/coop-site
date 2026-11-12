@@ -1,4 +1,5 @@
 (function () {
+  document.documentElement.classList.add("js");
   var page = document.querySelector(".ps-page");
   if (!page) return;
 
@@ -171,5 +172,59 @@
     }
     narrow.addEventListener("change", paintBar);
     paintBar();
+  }
+
+  var here = document.querySelector(".ps-here");
+  var hereIdx = here ? here.querySelector(".ps-here__idx") : null;
+  var hereName = here ? here.querySelector(".ps-here__name") : null;
+  var stages = document.querySelectorAll("[data-ps-stage]");
+  var hereNames = {
+    "1": "They find you",
+    "2": "They land and reach out",
+    "3": "They stay with you",
+    "4": "They buy, and you see what worked"
+  };
+  var hereCurrent = null;
+
+  function paintHere(id) {
+    if (!here || !hereIdx || !hereName) return;
+    if (id === hereCurrent) return;
+    hereCurrent = id;
+    if (!id) {
+      here.hidden = true;
+      here.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("ps-here-on");
+      return;
+    }
+    hereIdx.textContent = id + " of 4";
+    hereName.textContent = hereNames[id];
+    here.hidden = false;
+    here.setAttribute("aria-hidden", "false");
+    document.body.classList.add("ps-here-on");
+  }
+
+  if (here && hereIdx && hereName && stages.length && "IntersectionObserver" in window) {
+    var hereRatios = {};
+    var hereWatch = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var id = entry.target.getAttribute("data-ps-stage");
+        hereRatios[id] = entry.isIntersecting ? entry.intersectionRatio : 0;
+      });
+      var best = null;
+      var bestR = 0;
+      Object.keys(hereRatios).forEach(function (id) {
+        if (hereRatios[id] > bestR) {
+          bestR = hereRatios[id];
+          best = id;
+        }
+      });
+      paintHere(bestR > 0 ? best : null);
+    }, {
+      threshold: [0, 0.15, 0.3, 0.5, 0.75, 1],
+      rootMargin: "-10% 0px -55% 0px"
+    });
+    Array.prototype.forEach.call(stages, function (stage) {
+      hereWatch.observe(stage);
+    });
   }
 })();

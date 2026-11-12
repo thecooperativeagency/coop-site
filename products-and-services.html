@@ -55,7 +55,7 @@
       <p class="ps-motive">We work on any website platform, and we work great with Motive.</p>
       <p class="ps-actions">
         <a class="btn-pill is-fill" href="/contact" data-coop-chat aria-haspopup="dialog">Book a call</a>
-        <a href="#ps-path">See how it all fits ↓</a>
+        <a href="#ps-path">See how it all fits</a>
       </p>
       <p class="ps-motive">Tell us about your store in the chat and Lance will reach out to set up a time.</p>
       <p class="ps-motive">We'll talk through your goals before anyone mentions a number.</p>
@@ -79,15 +79,44 @@
     <div class="inner">
       <h2 class="display-md" id="ps-path-title">Every step from first search to sold.</h2>
       <p class="body ps-lede">A shopper finds you, lands on your site, reaches out, hears from you until they're ready, then comes in and buys. Most stores have a different vendor at every step, and nobody watching the whole path. We cover all of it.</p>
-      <p class="body ps-lede">They find you → They land and reach out → They stay with you → They buy, and you see what worked</p>
+      <nav aria-label="The path">
+        <ol class="ps-path">
+          <li>
+            <a class="ps-path__stop" href="#ps-stage-1">
+              <span class="ps-path__num">01</span>
+              <span class="ps-path__name">They find you</span>
+            </a>
+          </li>
+          <li>
+            <a class="ps-path__stop" href="#ps-stage-2">
+              <span class="ps-path__num">02</span>
+              <span class="ps-path__name">They land and reach out</span>
+            </a>
+          </li>
+          <li>
+            <a class="ps-path__stop" href="#ps-stage-3">
+              <span class="ps-path__num">03</span>
+              <span class="ps-path__name">They stay with you</span>
+            </a>
+          </li>
+          <li>
+            <a class="ps-path__stop" href="#ps-stage-4">
+              <span class="ps-path__num">04</span>
+              <span class="ps-path__name">They buy, and you see what worked</span>
+            </a>
+          </li>
+        </ol>
+      </nav>
     </div>
   </section>
 
-  <section class="ps-sec ps-sec--soft" id="ps-find" aria-labelledby="ps-find-title">
+  <section class="ps-sec ps-sec--soft" id="ps-stage-1" data-ps-stage="1" aria-labelledby="ps-stage-1-title">
     <div class="inner">
-      <p class="ps-eyebrow">Stage 1</p>
-      <h2 class="display-md" id="ps-find-title">They find you.</h2>
-      <p class="body ps-lede">Shoppers start on Google, in AI answers like ChatGPT, and scrolling social. We make sure your store shows up in all three, looking like your store.</p>
+      <header class="ps-stage">
+        <p class="ps-eyebrow">01</p>
+        <h2 class="display-md" id="ps-stage-1-title">They find you.</h2>
+        <p class="body ps-lede">Shoppers start on Google, in AI answers like AI assistants, and scrolling social. We make sure your store shows up in all three, looking like your store.</p>
+      </header>
       <div class="ps-content">
         <div class="ps-group-wrap">
           <p class="ps-group">On Google and in AI answers.</p>
@@ -268,11 +297,13 @@
     </div>
   </section>
 
-  <section class="ps-sec ps-sec--bg" id="ps-land" aria-labelledby="ps-land-title">
+  <section class="ps-sec ps-sec--bg" id="ps-stage-2" data-ps-stage="2" aria-labelledby="ps-stage-2-title">
     <div class="inner">
-      <p class="ps-eyebrow">Stage 2</p>
-      <h2 class="display-md" id="ps-land-title">They land on your site and reach out.</h2>
-      <p class="body ps-lede">Getting found only matters if the page they land on makes them want to act. We build the pages shoppers actually land on, and make sure the leads they send don't fall through.</p>
+      <header class="ps-stage">
+        <p class="ps-eyebrow">02</p>
+        <h2 class="display-md" id="ps-stage-2-title">They land on your site and reach out.</h2>
+        <p class="body ps-lede">Getting found only matters if the page they land on makes them want to act. We build the pages shoppers actually land on, and make sure the leads they send don't fall through.</p>
+      </header>
       <ul class="ps-points">
         <li>Feature, model and buyer's guide pages: lease, finance or buy, explained plainly</li>
         <li>Specials, service and loyalty pages, kept current with every offer</li>
@@ -330,11 +361,13 @@
     </div>
   </section>
 
-  <section class="ps-sec ps-sec--soft" id="ps-stay" aria-labelledby="ps-stay-title">
+  <section class="ps-sec ps-sec--soft" id="ps-stage-3" data-ps-stage="3" aria-labelledby="ps-stage-3-title">
     <div class="inner">
-      <p class="ps-eyebrow">Stage 3</p>
-      <h2 class="display-md" id="ps-stay-title">They're in your system. We keep them close until they're ready.</h2>
-      <p class="body ps-lede">Most shoppers aren't ready the day they reach out. The stores that win are the ones still in front of them when they are.</p>
+      <header class="ps-stage">
+        <p class="ps-eyebrow">03</p>
+        <h2 class="display-md" id="ps-stage-3-title">They're in your system. We keep them close until they're ready.</h2>
+        <p class="body ps-lede">Most shoppers aren't ready the day they reach out. The stores that win are the ones still in front of them when they are.</p>
+      </header>
       <div class="ps-content">
         <div class="ps-group-wrap">
           <p class="ps-group">Every lead gets followed up.</p>
@@ -387,11 +420,13 @@
     </div>
   </section>
 
-  <section class="ps-sec ps-sec--bg" id="ps-buy" aria-labelledby="ps-buy-title">
+  <section class="ps-sec ps-sec--bg" id="ps-stage-4" data-ps-stage="4" aria-labelledby="ps-stage-4-title">
     <div class="inner">
-      <p class="ps-eyebrow">Stage 4</p>
-      <h2 class="display-md" id="ps-buy-title">They come in and buy. You see exactly what worked.</h2>
-      <p class="body ps-lede">A sale should teach you something. We close the loop, so you know which sources are bringing buyers and which ones you're just paying for.</p>
+      <header class="ps-stage">
+        <p class="ps-eyebrow">04</p>
+        <h2 class="display-md" id="ps-stage-4-title">They come in and buy. You see exactly what worked.</h2>
+        <p class="body ps-lede">A sale should teach you something. We close the loop, so you know which sources are bringing buyers and which ones you're just paying for.</p>
+      </header>
       <ul class="ps-points">
         <li>A one-page weekly report for your GM: traffic, inventory, leads, response times and close rates, and then we sit down with you and turn it into what to do next</li>
         <li>Vendor management: we coordinate every vendor, cut the overlap and hold them accountable, so you stop paying for what doesn't work</li>
@@ -418,6 +453,7 @@
 
   <section class="ps-sec ps-sec--soft" id="ps-proof" aria-labelledby="ps-proof-title">
     <div class="inner">
+      <p class="ps-eyebrow">05</p>
       <h2 class="display-md" id="ps-proof-title">All of this is live on dealer sites today.</h2>
       <p class="body ps-lede">Audi Baton Rouge · Brian Harris BMW · Harris Porsche · BMW of Jackson</p>
       <p class="body ps-lede">Every example shown above is real work for a real store, not a mockup.</p>
@@ -426,6 +462,7 @@
 
   <section class="ps-sec ps-sec--bg" id="ps-start" aria-labelledby="ps-start-title">
     <div class="inner">
+      <p class="ps-eyebrow">06</p>
       <h2 class="display-md" id="ps-start-title">Getting started is simple.</h2>
       <ol class="ps-points">
         <li>Book a call. Tell us about your store in the chat, and Lance will reach out to set up a time. No pressure.</li>
@@ -438,6 +475,7 @@
 
   <section class="ps-sec ps-sec--slim ps-sec--white" id="ps-coop" aria-labelledby="ps-coop-title">
     <div class="inner">
+      <p class="ps-eyebrow">07</p>
       <h2 class="display-sm" id="ps-coop-title">Your co-op dollars can cover a lot of this.</h2>
       <p class="body ps-lede">Our goal is to get 50 to 75 percent of eligible spend covered by BMW co-op. We've done it before, though it's not guaranteed.</p>
       <p class="ps-cta"><a class="link-cta" href="/contact" data-coop-chat aria-haspopup="dialog">Book a call</a> and ask how co-op works for your store.</p>
@@ -446,6 +484,7 @@
 
   <section class="ps-sec ps-sec--bg" id="ps-why" aria-labelledby="ps-why-title">
     <div class="inner">
+      <p class="ps-eyebrow">08</p>
       <h2 class="display-md" id="ps-why-title">Why The Cooperative</h2>
       <p class="body ps-lede">Two decades selling cars, running campaigns and untangling vendor messes. Creative made in-house, so when an incentive changes, your creative changes fast. We send real creators to your store, so your content looks like your store. And we're based in Baton Rouge, serving dealerships across the South.</p>
       <figure class="ps-pullquote">
@@ -456,6 +495,7 @@
 
   <section class="ps-sec ps-sec--soft" id="ps-answers" aria-labelledby="ps-answers-title">
     <div class="inner">
+      <p class="ps-eyebrow">09</p>
       <h2 class="display-md" id="ps-answers-title">Straight answers</h2>
       <div class="ps-content">
         <div class="ps-group-wrap">
@@ -484,6 +524,7 @@
 
   <section class="ps-sec ps-sec--bg" id="ps-close" aria-labelledby="ps-close-title">
     <div class="inner">
+      <p class="ps-eyebrow">10</p>
       <h2 class="display-md" id="ps-close-title">Let's see what this does for your store.</h2>
       <p class="body ps-lede">Book a call and we'll walk your path from first search to sold. We'll talk through your goals before anyone mentions a number.</p>
       <p class="ps-cta"><a class="btn-pill is-fill" href="/contact" data-coop-chat aria-haspopup="dialog">Book a call</a></p>
@@ -494,6 +535,7 @@
 
   <section class="ps-sec ps-sec--slim ps-sec--soft" id="ps-beyond" aria-labelledby="ps-beyond-title">
     <div class="inner">
+      <p class="ps-eyebrow">11</p>
       <h2 class="display-sm" id="ps-beyond-title">Not a dealership?</h2>
       <p class="body ps-lede">We also consult for startups and build sites and run social for restaurants.</p>
       <p class="ps-cta"><a class="link-cta" href="/contact" data-coop-chat data-chat-draft="Hey, what can you guys do for a business that's not a dealership?" aria-haspopup="dialog">Book a call</a></p>
@@ -539,6 +581,12 @@
     <span>The Cooperative Agency · Baton Rouge, Louisiana</span>
     <span><a href="./">Home</a> · <a href="./faq.html">FAQ</a> · <a href="./contact.html">Contact</a> · <a href="./products-and-services.html" aria-current="page">Products &amp; Services</a> · <a href="./careers.html">Careers</a> · <a href="./privacy.html">Privacy</a> · <a href="./sms-terms.html">SMS Terms</a></span>
   </div>
+
+  <p class="ps-here" hidden aria-hidden="true" role="status" aria-live="polite">
+    <span class="ps-here__idx"></span>
+    <span aria-hidden="true"> · </span>
+    <span class="ps-here__name"></span>
+  </p>
 
   <nav class="ps-bar" aria-label="Quick actions" aria-hidden="true" inert>
     <a href="/contact" data-coop-chat aria-haspopup="dialog">Book a call</a>
