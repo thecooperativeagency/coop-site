@@ -76,6 +76,18 @@
     });
   });
 
+  document.addEventListener("click", function (event) {
+    var trigger = event.target.closest && event.target.closest("[data-chat-draft]");
+    if (!trigger) return;
+    var draft = trigger.getAttribute("data-chat-draft");
+    if (!draft) return;
+    window.setTimeout(function () {
+      var field = document.querySelector("#cc-in");
+      if (!field) return;
+      field.value = draft;
+    }, 0);
+  });
+
   function icon(playing) {
     if (playing) {
       return '<svg viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12"/><rect x="8.5" y="1" width="3.5" height="12"/></svg>';

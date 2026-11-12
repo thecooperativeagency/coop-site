@@ -216,6 +216,10 @@
   color: #555;
 }
 
+ol.ps-points {
+  list-style: decimal;
+}
+
 .ps-content {
   margin-top: var(--space-3);
   min-width: 0;
@@ -649,7 +653,7 @@
 
   .ps-bar {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     position: fixed;
     left: 0;
     right: 0;
