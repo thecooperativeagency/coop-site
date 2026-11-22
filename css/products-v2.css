@@ -270,17 +270,33 @@ ol.ps-points {
 }
 
 .ps-row--shoot {
-  --row-sum: 1.4666667; /* 2/3 + 4/5: equal heights, widths follow each photo */
-  --row-gaps: var(--space-2);
-  grid-template-columns: 5fr 6fr;
-  align-items: start;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
 }
 
-.ps-row--shoot .ps-ex__frame img {
+.ps-row--shoot > .ps-ex {
+  min-width: 0;
+  margin: 0;
+}
+
+.ps-row--shoot > .ps-ex:nth-child(1) { flex: 0.75 1 0; }
+.ps-row--shoot > .ps-ex:nth-child(2),
+.ps-row--shoot > .ps-ex:nth-child(3) { flex: 0.6667 1 0; }
+
+.ps-row--shoot > .ps-ex > img {
+  display: block;
   width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: top center;
+}
+
+.ps-row--shoot .ps-cap {
+  margin: 8px 0 0;
+}
+
+.ps-row--shoot .ps-cap__store:empty {
+  display: none;
 }
 
 .ps-row--guides {
@@ -366,6 +382,7 @@ ol.ps-points {
 .ps-ar-1610 { --ar: 16 / 10; }
 .ps-ar-43 { --ar: 4 / 3; }
 .ps-ar-23 { --ar: 2 / 3; }
+.ps-ar-34 { --ar: 3 / 4; }
 .ps-ar-45 { --ar: 4 / 5; }
 .ps-ar-169 { --ar: 16 / 9; }
 .ps-ar-916 { --ar: 9 / 16; }
@@ -731,7 +748,6 @@ ol.ps-points {
   }
 
   .ps-row--clips,
-  .ps-row--shoot,
   .ps-row--guides,
   .ps-row--social,
   .ps-row--air {
@@ -742,7 +758,6 @@ ol.ps-points {
     grid-template-columns: 1fr 1fr;
   }
 
-  .ps-row--shoot,
   .ps-row--guides,
   .ps-row--air {
     grid-template-columns: 1fr;
@@ -991,5 +1006,41 @@ ol.ps-points {
 @media (prefers-reduced-motion: reduce) {
   .ps-here {
     transition: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .ps-row--shoot {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    width: calc(100% + (2 * var(--gutter)));
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0 22px;
+    scroll-padding: 0 22px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .ps-row--shoot::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ps-row--shoot::after {
+    content: "";
+    flex: 0 0 10px;
+  }
+
+  .ps-row--shoot > .ps-ex,
+  .ps-row--shoot > .ps-ex:nth-child(1),
+  .ps-row--shoot > .ps-ex:nth-child(2),
+  .ps-row--shoot > .ps-ex:nth-child(3) {
+    flex: none;
+    scroll-snap-align: start;
+  }
+
+  .ps-row--shoot > .ps-ex > img {
+    height: 420px;
+    width: auto;
   }
 }
