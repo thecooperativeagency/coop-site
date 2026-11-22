@@ -16,6 +16,8 @@ Backed by two decades of hands-on dealership marketing, sales and systems experi
 - **Vendor management:** We eliminate overlapping services and become the single point of contact for marketing operations.
 - **Lead and CRM fixes:** We diagnose and fix lead flow, customer relationship management (CRM) setup and follow-up processes.
 - **Fast turnaround:** Creative is built in-house and can deploy within hours for sales events, incentives and urgent updates.
+- **Search, AI search and content:** Search engine optimization (SEO), generative engine optimization (GEO) so AI assistants can read the store and recommend it, and AI-written content checked by people who have worked dealership floors. Google Business Profile kept current.
+- **Lifestyle newsletters and offer emails:** A luxury-lifestyle newsletter for each store, published on the dealer website, plus monthly specials and service offers sent as email and kept as matching pages on the site.
 
 ## Who we work with
 
@@ -30,6 +32,7 @@ Backed by two decades of hands-on dealership marketing, sales and systems experi
 - [Careers](https://thecoopbrla.com/careers.html): Now hiring a Content Creator (inventory photography, social media content, AI and systems). Apply through the form on the page.
 - [Privacy Policy](https://thecoopbrla.com/privacy): What the site collects, how it is used, and the SMS program rules, including that mobile numbers and SMS opt-in data are not shared or sold.
 - [SMS Terms](https://thecoopbrla.com/sms-terms): Terms for text messages about an inquiry, including STOP, HELP, and START.
+- [Products and Services](https://thecoopbrla.com/products-and-services): The dealership service suite on one page: SEO, AI search visibility, lifestyle newsletters, offer emails that also live on the dealer website, custom photo and video, social, vendor management, lead and CRM fixes, a weekly general-manager report, spend review and co-op.
 - [Full site text](https://thecoopbrla.com/llms-full.txt): Plain-text version of every public page.
 
 ## Products

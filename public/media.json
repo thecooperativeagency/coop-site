@@ -1,0 +1,57 @@
+[
+  {
+    "type": "video",
+    "store": "Harris Porsche",
+    "title": "2015 911 GT3 walkaround",
+    "aspect": "9:16",
+    "role": "phone",
+    "mp4": "./public/videos/harris-porsche-gt3-walkaround.mp4",
+    "poster": "./public/videos/harris-porsche-gt3-walkaround-poster.jpg",
+    "alt": "Harris Porsche, 2015 911 GT3 walkaround Reel. Instagram and Facebook, Nov 2026.",
+    "caption": "Instagram and Facebook, Nov 2026."
+  },
+  {
+    "type": "video",
+    "store": "Harris Porsche",
+    "title": "Meet Seth LeBlanc",
+    "aspect": "9:16",
+    "role": "phone",
+    "mp4": "./public/videos/harris-porsche-seth-intro.mp4",
+    "webm": "./public/videos/harris-porsche-seth-intro.webm",
+    "poster": "./public/videos/harris-porsche-seth-intro-poster.jpg",
+    "alt": "Seth LeBlanc, Porsche brand ambassador at Harris Porsche, in the configurator studio",
+    "ig_url": "https://www.instagram.com/reel/DfH-74uRY8W/",
+    "caption": "Published on Instagram"
+  },
+  {
+    "type": "video",
+    "store": "BMW of Jackson",
+    "title": "Drone, on the lot",
+    "aspect": "16:9",
+    "role": "band",
+    "mp4": "./public/videos/bmw-of-jackson-lot.mp4",
+    "webm": "./public/videos/bmw-of-jackson-lot.webm",
+    "poster": "./public/videos/bmw-of-jackson-lot-poster.jpg",
+    "alt": "Aerial and lot footage of the BMW of Jackson storefront and inventory"
+  },
+  {
+    "type": "image",
+    "role": "still",
+    "store": "Audi Baton Rouge",
+    "title": "New-car building",
+    "aspect": "4:3",
+    "src": "./public/images/media/abr-drone-newcar-building.webp",
+    "src_sm": "./public/images/media/abr-drone-newcar-building-800.webp",
+    "alt": "Drone view of the Audi Baton Rouge new-car building and lot"
+  },
+  {
+    "type": "image",
+    "role": "still",
+    "store": "Brian Harris BMW",
+    "title": "Dealership",
+    "aspect": "16:9",
+    "src": "./public/images/media/bh-bmw-drone-dealership.webp",
+    "src_sm": "./public/images/media/bh-bmw-drone-dealership-800.webp",
+    "alt": "Drone view of the Brian Harris BMW dealership and lot"
+  }
+]
