@@ -1,16 +1,14 @@
 [
   {
     "type": "video",
-    "store": "Audi Baton Rouge",
-    "title": "The first ever Audi Q9",
+    "store": "Harris Porsche",
+    "title": "2015 911 GT3 walkaround",
     "aspect": "9:16",
     "role": "phone",
-    "mp4": "./public/videos/abr-q9-reel.mp4",
-    "webm": "./public/videos/abr-q9-reel.webm",
-    "poster": "./public/videos/abr-q9-reel-poster.jpg",
-    "alt": "The first ever Audi Q9, filmed on the Audi Baton Rouge lot",
-    "ig_url": "https://www.instagram.com/reel/DflRY2tjbpO/",
-    "caption": "Published on Instagram"
+    "mp4": "./public/videos/harris-porsche-gt3-walkaround.mp4",
+    "poster": "./public/videos/harris-porsche-gt3-walkaround-poster.jpg",
+    "alt": "Harris Porsche, 2015 911 GT3 walkaround Reel. Instagram and Facebook, Nov 2026.",
+    "caption": "Instagram and Facebook, Nov 2026."
   },
   {
     "type": "video",
