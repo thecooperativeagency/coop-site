@@ -1047,4 +1047,21 @@ ol.ps-points {
     height: 420px;
     width: auto;
   }
+
+  .ps-row--clips {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .ps-row--clips .ps-ex__frame {
+    aspect-ratio: auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .ps-row--clips .ps-ex__frame img {
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+  }
 }
