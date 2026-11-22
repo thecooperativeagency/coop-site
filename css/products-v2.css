@@ -295,9 +295,6 @@ ol.ps-points {
   margin: 8px 0 0;
 }
 
-.ps-row--shoot .ps-cap__store:empty {
-  display: none;
-}
 
 .ps-row--guides {
   --row-sum: 3.2;
