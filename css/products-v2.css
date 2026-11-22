@@ -309,9 +309,17 @@ ol.ps-points {
   grid-template-columns: 0.8fr 0.8fr 0.5625fr 0.5625fr;
 }
 
+.ps-row--social .ps-ex__frame {
+  aspect-ratio: auto;
+  height: auto;
+  overflow: visible;
+}
+
 .ps-row--social .ps-ex__frame img,
 .ps-row--social .ps-ex__frame video {
-  object-fit: contain;
+  width: 100%;
+  height: auto;
+  object-fit: unset;
 }
 
 .ps-row--air {
@@ -410,7 +418,6 @@ ol.ps-points {
 
 .ps-ex--natural .ps-ex__frame img {
   height: auto;
-  object-fit: cover;
 }
 
 .ps-play {
